@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <button onclick="getList()">get list</button>
+    <button onclick="getList2()">get list 2</button>
+    <script>
+
+        function getList() {
+            // create first label
+            list : {
+                document.getElementById("result").innerHTML += "hoa ";
+                document.getElementById("result").innerHTML += "Nhan ";
+                break list;
+                document.getElementById("result").innerHTML += "Trong ";
+                document.getElementById("result").innerHTML += "Hoa";
+            }
+
+        }
+
+        function getList2 () {
+            list_two : {
+                let len = 10;
+                for(var i = 0; i < 10; i++) {
+                    console.log(i);
+                }
+                //break list_two;
+                for(var i = 0; i < 10; i++) {
+                    console.log(i);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

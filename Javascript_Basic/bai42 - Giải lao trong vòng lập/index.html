@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <button onclick="nhayra()">break - nhảy ra</button>
+    <button onclick="nhayqua()">continue - nhảy qua</button>
+    <script>
+        // break: được gọi là tuyên bố "nhảy ra"
+        // continue: được gọi là tuyên bố "nhảy qua"
+        function nhayqua() {
+            reset();
+            let text = "";
+            for(let i = 0;i < 10; i++) {
+                if(i === 3) { continue; }
+                text += i + ' ';
+            }
+            document.getElementById("result").innerHTML = text;
+        }
+        function nhayra() {
+            reset();
+            i = 0;
+            let text = "";
+            for(let i = 0;i < 10; i++) {
+                if(i === 3) { break; }
+                text += i + ' ';
+            }
+
+            document.getElementById("result").innerHTML = text;
+        }
+
+        function reset () {
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+</body>
+</html>

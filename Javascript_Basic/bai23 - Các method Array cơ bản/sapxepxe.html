@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <button onclick="sapxep(1)">Nho toi lon</button>
+    <button onclick="sapxep(2)">Lon toi nho</button>
+    <button onclick="sapxepchu(1)">chu toi lon</button>
+    <button onclick="sapxepchu(2)">chu toi nho</button>
+    <ol id="demo">
+
+    </ol>
+    <script>
+
+        let listCar = [
+            {type:"BMW", year: 1999},
+            {type:"VOLVO", year: 1923},
+            {type:"SIEUMANH", year:1979},
+            {type:"LAMBOGHINI", year:2009}
+        ];
+
+        function sapxepchu(number) {
+            document.getElementById("demo").innerHTML = "";
+            if(number == 1) {
+                listCar.sort(function (a,b) {
+                    let x , y;
+                    x = a.type.toLowerCase();
+                    y = b.type.toLowerCase();
+                    if(x < y) { return -1; }
+                    if(x > y) { return -1; }
+                });
+            } else {
+                listCar.sort(function (a,b) {
+                    let x , y;
+                    x = a.type.toLowerCase();
+                    y = b.type.toLowerCase();
+                    if (x > y) { return 1; }
+                    if (x < y) { return -1; } 
+                });
+            }
+
+            listCar.forEach(phantu => {
+                document.getElementById("demo").innerHTML += `
+                    <li>
+                        ${phantu.type} sản xuất tại năm ${phantu.year}
+                    </li>
+                `;
+            })
+        }
+        function sapxep(number) {
+
+            document.getElementById("demo").innerHTML = "";
+            if(number == 1) {
+                listCar.sort(function (a,b) {
+                    return a.year - b.year;
+                });
+            } else {
+                listCar.sort(function (a,b) {
+                    return b.year - a.year;
+                });
+            }
+
+            listCar.forEach(phantu => {
+                document.getElementById("demo").innerHTML += `
+                    <li>
+                        ${phantu.type} năm sản xuất ${phantu.year}
+                    </li>
+                `; 
+                console.log(phantu);
+            });
+            
+        }
+    </script>
+</body>
+</html>

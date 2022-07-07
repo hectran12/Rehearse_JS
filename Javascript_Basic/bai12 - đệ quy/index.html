@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <script>
+
+        // list function
+        {
+            function getFullName (firstName, LastName) {
+                return firstName + " " + LastName;
+            }
+
+            function sum (a, b) {
+                return a + b;
+            }
+
+            function tract (a, b) {
+                return a - b;
+            }
+
+            function dequy (number) {
+                if (number == 1) {
+                    return 1;
+                } else {
+                    return number * dequy(number - 1);
+                }
+            }
+
+            
+        }
+
+
+        // action code
+        {
+            // show alert fullName
+            var fullName = getFullName("Trần","Trọng Hòa");
+            alert(fullName);
+
+            // show alert sum
+            var sumTract = sum(10, 20);
+            alert(sumTract);
+
+            // show alert tract
+            var tract = tract(10, 20);
+            alert(tract);
+
+            // show type function
+            alert(typeof getFullName);
+
+            // show de quy
+            let result = dequy(10);
+            alert(result);
+        }
+    </script>
+</body>
+</html>

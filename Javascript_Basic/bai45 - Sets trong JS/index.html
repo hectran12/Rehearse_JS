@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <button onclick="addset()">Thêm</button>
+    <script>
+
+        let set = new Set(['Trong Hoa','Tran Huu','Hang Huyen']);
+        loadResult();
+
+        function addset() {
+            set.add(prompt("Nhập chuỗi muốn thêm: "));
+            loadResult_ver2();
+        }
+
+        function loadResult() {
+            document.getElementById("result").innerHTML = "";
+            for(let x of set.values()) {
+                document.getElementById("result").innerHTML += x;
+            }
+        }
+
+        function loadResult_ver2() {
+            document.getElementById("result").innerHTML = "";
+            
+            set.forEach(phantu => {
+                document.getElementById("result").innerHTML += phantu;    
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <div id="idbutton"></div>
+    <script>
+        let listbutton = [
+                          'forthuong1','forthuong2','forthuong3','forthuong4','forthuong5'
+                         ,'forthuong6'
+        ];
+        let listcar = ['BMW','LENOVO','HUAWEI','XIAOMI'];
+        test();
+
+
+        // test function
+
+        function forthuong6() {
+            document.getElementById("result").innerHTML = "";
+            console.log("Sử dụng let để lượt bỏ khái niệm vừa rồi");
+            let i = 5;
+            console.log('Before: ' + i);
+            for(let i = 0;i < 10;i++) {
+                // pass
+            }
+            console.log('After: ' + i);
+        }
+        function forthuong5 () {
+            document.getElementById("result").innerHTML = "";
+            console.log("Phạm vi vòng lặp");
+            var i = 5;
+            console.log("before: " + i);
+            for(var i = 0;i < 10;i++) {
+                // pass
+                console.log(i);
+            }
+            console.log("after: " + i);
+        }
+        function forthuong4 () {
+            document.getElementById("result").innerHTML = "";
+            let i, len;
+            i = 2;
+            len = listcar.length;
+            for(let text = "";i<len;) {
+                text += listcar[i] + " ";
+                console.log(i + " " + text);
+                i++;
+            }
+        }
+
+        function forthuong3 () {
+            document.getElementById("result").innerHTML = "";
+            let i, len;
+            i = 2;
+            len = listcar.length;
+            for (;i<len;i++) {
+                document.getElementById("result").innerHTML += listcar[i] + "<br>";
+            }
+        }
+
+        function forthuong2 () {
+            document.getElementById("result").innerHTML = "";
+            const listcar = ['BMW','LENOVO','SAMSUNG','LEG'];
+            for(let i = 0, len = listcar.length, text = "";i<len;i++) {
+                document.getElementById("result").innerHTML += listcar[i] + "<br>";
+            }
+        }
+
+        function forthuong1 () {
+            document.getElementById("result").innerHTML = "";
+            const value = parseInt(prompt("Nhập số: "));
+            for (var i = 0;i < value;i++) {
+                document.getElementById("result").innerHTML += i + 1 + "<br>";
+            }
+        }
+        function test() {
+            for(var i = 0;i < listbutton.length;i++) {
+                document.getElementById("idbutton").innerHTML += `
+                    <button onclick="${listbutton[i]}()">${listbutton[i]}</button>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

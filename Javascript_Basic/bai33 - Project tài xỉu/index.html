@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {margin:25px;}
+
+div.polaroid {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+    </style>
+</head>
+<body>
+    <center>
+        <h1 id="tien"></h1>
+        <button onclick="resetMoney()">Reset</button>
+        <button onclick="vanmoi()">Chơi ván mới</button>
+        <br><br>
+        <h4 id="result"></h4>
+        <div id="rest" class="polaroid">
+            <img id="image_rand" src="image\home.jpg" alt="Đẹp chai" style="width:100%">
+            <div class="container">
+            <p id="playbutton"><button onclick="play()">Chơi</button></p>
+            </div>
+          </div>
+        <br>
+        Đặt tiền: <input onchange="dattien()" type="number" id="money" value="200">
+        &nbsp;&nbsp; <input type="button" onclick="allin()" value="allIn">
+        <br> &nbsp; &nbsp; <input onclick="dat(1)" type="button" value="Đặt xỉu">
+        <input onclick="dat(2)" type="button" value="Đặt tài">
+        <br>
+        <p id="bandadat"></p>
+    </center>
+    <script src="script/random.js"></script>
+    <script src="script/main.js"></script>
+</body>
+</html>

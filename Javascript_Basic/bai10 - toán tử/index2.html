@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result1"></h1>
+    <br>
+    <h1 id="result2"></h1>
+    <br>
+    <h1 id="result3"></h1>
+    <br>
+    <h1 id="result4"></h1>
+    <br>
+    <h1 id="result5"></h1>
+    <br>
+    <h1 id="result6"></h1>
+    <br>
+    <h1 id="result7"></h1>
+    <br>
+    <h1 id="result8"></h1>
+
+
+    <script>
+        let x = 5;
+        document.getElementById("result1").innerHTML = ++x;
+        {
+            let x = 5;
+            x += 1;
+            document.getElementById("result2").innerHTML = x;
+        }
+        {
+            let x = 6;
+            x -= 2;
+            document.getElementById("result3").innerHTML = x;
+        }
+        {
+            let x = 7;
+            x *= 2;
+            document.getElementById("result4").innerHTML = x;
+        }
+        {
+            let x = 8;
+            x /= 2;
+            document.getElementById("result5").innerHTML = x;
+        }
+        {
+            let x = 2;
+            x **= 3;
+            document.getElementById("result6").innerHTML = x;
+        }
+        {
+            let x = 10;
+            x %= 2;
+            document.getElementById("result7").innerHTML = x;
+        }
+        {
+            const fullName = "Trọng Hòa";
+            const age = 20;
+            var result = fullName;
+            result += ", tuổi ";
+            result += age;
+            document.getElementById("result8").innerHTML = result;
+        }
+    </script>
+</body>
+</html>

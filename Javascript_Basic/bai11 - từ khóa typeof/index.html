@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result1"></h1>
+    <br>
+    <h1 id="result2"></h1>
+    <br>
+    <h1 id="result3"></h1>
+    <br>
+    <h1 id="result4"></h1>
+    <br>
+    <h1 id="result5"></h1>
+    <br>
+    <h1 id="result6"></h1>
+    <br>
+    <h1 id="result7"></h1>
+    <br>
+    <h1 id="result8"></h1>
+    <script>
+        {
+            let x = 5;
+            document.getElementById("result1").innerHTML = typeof x;
+        }
+        {
+            let x = "trọng";
+            document.getElementById("result2").innerHTML = typeof x;
+        }
+        {
+            let x = 3.5;
+            document.getElementById("result3").innerHTML = typeof x;
+        }
+        {
+            let x = true;
+            document.getElementById("result4").innerHTML = typeof x;
+        }
+        {
+            let x = undefined;
+            document.getElementById("result5").innerHTML = typeof x;
+        }
+        {
+            let x = null;
+            document.getElementById("result6").innerHTML = typeof x;
+        }
+        {
+            let x = {
+                fullName : "Trọng",
+                age : 20
+            }
+
+            document.getElementById("result7").innerHTML = x.fullName + " , " + x.age + " || " + typeof x;
+
+        }
+
+        {
+            var listName = ["trong hoa",{},4.50,true,undefined,null];
+            document.getElementById("result8").innerHTML = typeof listName[3];
+        }
+    </script>
+</body>
+</html>

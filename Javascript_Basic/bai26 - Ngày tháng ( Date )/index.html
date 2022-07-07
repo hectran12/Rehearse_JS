@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1 id="result"></h1>
+        <br>
+        <input type="text" id="years" placeholder="Năm" style="width:10%">
+        <input type="text" id="months" placeholder="Tháng" style="width:10%">
+        <input type="text" id="days" placeholder="Ngày" style="width:10%">
+        <input type="text" id="hours" placeholder="Giờ" style="width:10%">
+        <input type="text" id="minutes" placeholder="Phút" style="width:10%">
+        <input type="text" id="seconds" placeholder="Giây" style="width:10%">
+        <input type="text" id="ms" placeholder="Mili giây" style="width:10%">
+        <br><br>
+        <input type="text" id="label" placeholder="Văn bản convert sang Date" style="width:70%">
+        <br><br>
+        <input type="submit" onclick="action_date()" value="Bấm giờ">
+        <input type="submit" onclick="low_date()" value="Bấm ngắn">
+        <input type="submit" onclick="cv2toDate()" value="Chuyển văn bản sang giờ">
+        <input type="submit" onclick="cv2MiliDate()" value="Chuyển mili giây sang Date">
+        <input type="submit" onclick="toUTC()" value="Chuyển sang UTC">
+        <input type="submit" onclick="toIOS()" value="Chuyển sang IOS">
+    </center>
+
+    <script>
+        let year, month, day, hour, minute, second, ms, text;
+
+        function toIOS() {
+            setDate();
+            let date = new Date(year, month, day, hour, minute, second, ms);
+            document.getElementById("result").innerHTML = date.toISOString();
+        }
+        function toDate() {
+            setDate();
+            let date = new Date(year, month, day, hour, minute, second, ms);
+            document.getElementById("result").innerHTML = date.toDateString();
+        }
+        function toUTC() {
+            setDate();
+            let date = new Date(year, month, day, hour, minute, second, ms);
+            document.getElementById("result").innerHTML = date.toUTCString();
+        }
+        function cv2MiliDate() {
+            setDate();
+            const d = new Date(ms);
+            document.getElementById("result").innerHTML = d;
+        }
+        function cv2toDate() {
+            setDate();
+            const d = new Date(text);
+            document.getElementById("result").innerHTML = d;
+        }
+        function low_date() {
+            const d = new Date(0);
+            document.getElementById("result").innerHTML = d;
+        }
+
+        function action_date() {
+            setDate();
+            if(year == NaN) {
+                d = new Date(year,0,0);
+            } else if(month == NaN) {
+                d = new Date(1970,month,0);
+            } else if(day == NaN) {
+                d = new Date(1970,0,day);
+            } else if(minute == NaN) {
+                d = new Date(1970, 0, 0, 0, minute, 0);
+            } else if(hour == NaN) {
+                d = new Date(1970, 0, 0, hour, 0, 0);
+            } else if(second == NaN) {
+                d = new Date(1970, 0, 0, 0, 0, second);
+            } else if(ms == NaN) {
+                d = new Date(1970, 0, 0, 0, 0, 0, ms);
+            } else {
+                d = new Date(year, month, day, hour, minute, second, ms);
+            }
+            document.getElementById("result").innerHTML = d;
+        }
+
+        function setDate () {
+            year   = parseInt(document.getElementById("years").value);
+            month  = parseInt(document.getElementById("months").value);
+            day    = parseInt(document.getElementById("days").value);
+            hour   = parseInt(document.getElementById("hours").value);
+            minute = parseInt(document.getElementById("minutes").value);
+            second = parseInt(document.getElementById("seconds").value);
+            ms     = parseInt(document.getElementById("ms").value);
+            text   = document.getElementById("label").value;
+        }
+    </script>
+</body>
+</html>

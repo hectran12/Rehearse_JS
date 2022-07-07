@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <script>
+        setInterval(()=>{
+            var text = "";
+            switch(new Date().getDay()) {
+                case 0: 
+                    text = "Chủ nhật";
+                    break;      
+                case 1: 
+                    text = "Thứ hai";
+                    break;      
+                case 2: 
+                    text = "Thứ ba";
+                    break;      
+                case 3: 
+                    text = "Thứ tư";
+                    break;      
+                case 4: 
+                    text = "Thứ năm";
+                    break;      
+                case 5: 
+                    text = "Thứ sáu"; 
+                    break;      
+                case 6: 
+                    text = "Thứ bảy";
+                    break;  
+                default: 
+                    text = "Không thuộc trường hợp nào trên";
+                    break;     
+            }
+            document.getElementById("result").innerHTML = text;
+        },0);
+
+        // Lưu ý
+        // Từ khóa break để ngưng trường hợp, nếu không có thì nó sẽ vượt qua
+        // default là gì? nếu không hợp các trường hợp trên , bạn có thể đặt bật cứ chỗ nào nếu thích
+        // Switch khá nhạy cảm với kiểu dữ liệu có thể nói nó không sử dụng so sánh ==
+        // mà là ===
+        
+    </script>
+</body>
+</html>

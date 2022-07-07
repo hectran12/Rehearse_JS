@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result1"></h1>
+    <br>
+    <h1 id="result2"></h1>
+    <br>
+    <h1 id="result3"></h1>
+    <br>
+    <h1 id="result4"></h1>
+    <br>
+    <h1 id="result5"></h1>
+    <br>
+    <h1 id="result6"></h1>
+    <br>
+    <h1 id="result7"></h1>
+    <br>
+    <h1 id="result8"></h1>
+
+    <script>
+        {
+            const listName = ['Trọng Hòa','Huỳnh Nhân','Triệu Nguyễn'];
+           // document.getElementById("result1").innerHTML = listName[0] + " " + listName[1] + " " + listName[2] + ", " + typeof listName;
+        }
+        {
+            const listName = [
+                "Trọng Hòa",
+                "Huỳnh Nhân",
+                "Triệu Nguyễn"
+            ];
+
+          //  document.getElementById("result2").innerHTML = listName + " , " + typeof listName;
+        }
+        {
+            const listName = new Array(
+                "hang nguyen",
+                "nha nguyen",
+                "thieu nguyen"
+            );
+           // document.getElementById("result3").innerHTML = listName;
+            // document.getElementById("result4").innerHTML = typeof listName + " , " + typeof listName[0];
+        }
+        {
+            const hocSinh = {
+                firstName : "Trần",
+                lastName : "Trong Hòa",
+                age : 19,
+                getFullName : function () {
+                    return this.firstName + " " + this.lastName + ", " + this.age + " tuổi!";
+                }
+            }
+
+           // document.getElementById("result5").innerHTML = hocSinh.getFullName();
+        }
+        {
+            const listItem = [];
+            listItem[0] = "Trong";
+            listItem[1] = " Hoa";
+            listItem[2] = 19;
+            listItem.forEach(element => {
+                document.getElementById("result1").innerHTML += element + " ";
+            });
+            let num = listItem[0];
+            document.getElementById("result2").innerHTML = listItem.length;
+            document.getElementById("result3").innerHTML = num;
+            document.getElementById("result4").innerHTML = listItem[parseInt(prompt("Nhap số: "))-1];
+        }
+        
+    </script>
+</body>
+</html>

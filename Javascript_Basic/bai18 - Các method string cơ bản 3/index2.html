@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function student (firstName , lastName , age) {
+            this.ho = firstName;
+            this.ten = lastName;
+            this.tuoi = age;
+        }
+
+        var student1 = new student("Trong", "Hoa", 20);
+        var student2 = new student("Nhan", "Hoa", 19);
+
+        student.prototype.bietdanh = "hoc sinh ngu";
+
+        document.write("Ten hoc sinh 1: "+student1.ho + student1.ten + ", tuoi la " + student1.tuoi + ", biet danh la " + student1.bietdanh);
+        document.write("<br>");
+        document.write("Ten hoc sinh 2: "+student2.ho + student2.ten + ", tuoi la " + student2.tuoi + ", biet danh la " + student2.bietdanh);
+    </script>
+</body>
+</html>

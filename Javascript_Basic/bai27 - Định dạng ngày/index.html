@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1 id="result"></h1>
+        <br>
+        <input type="text" id="years" placeholder="Năm" style="width:10%">
+        <input type="text" id="months" placeholder="Tháng" style="width:10%">
+        <input type="text" id="days" placeholder="Ngày" style="width:10%">
+        <input type="text" id="hours" placeholder="Giờ" style="width:10%">
+        <input type="text" id="minutes" placeholder="Phút" style="width:10%">
+        <input type="text" id="seconds" placeholder="Giây" style="width:10%">
+        <input type="text" id="ms" placeholder="Mili giây" style="width:10%">
+        <br><br>
+        <input type="text" id="label" placeholder="Văn bản convert sang Date" style="width:70%">
+        <br><br>
+        <button onclick="toIOSinText()">Chuyển sang chuẩn IOS</button>
+        <button onclick="toParseDate()">Method parse của Date</button>
+    </center>
+
+    <script>
+        let year, month, day, hour, minute, second, ms, text;
+
+        function toParseDate () {
+            setDate();
+            const d = Date.parse(text);
+            document.getElementById("result").innerHTML = d.toString();
+        }
+        function toIOSinText () {
+            setDate();
+            const d = new Date(text);
+            document.getElementById("result").innerHTML = d.toString();
+        }
+
+        function setDate () {
+            year   = parseInt(document.getElementById("years").value);
+            month  = parseInt(document.getElementById("months").value);
+            day    = parseInt(document.getElementById("days").value);
+            hour   = parseInt(document.getElementById("hours").value);
+            minute = parseInt(document.getElementById("minutes").value);
+            second = parseInt(document.getElementById("seconds").value);
+            ms     = parseInt(document.getElementById("ms").value);
+            text   = document.getElementById("label").value;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1><br>
+    <input type="text" id="input">
+    <button onclick="toTrinh()">toString()</button>
+    <button onclick="thamgia()">join()</button>
+    <button onclick="xoaphantucuoi()">pop()</button>
+    <button onclick="themphantu()">push()</button>
+    <button onclick="getLength()">length</button>
+    <button onclick="xoaphantudau()">shift()</button>
+    <button onclick="themphantudaumang()">unshift()</button>
+    <button onclick="xoaphantubangdelte()">delete</button>
+    <button onclick="ghepmang()">concat()</button>
+    <button onclick="themphantumoivaomang()">splice()</button>
+    <button onclick="xoaphantudaumang()">splice(0,1)</button>
+    <button onclick="xoaphantuthemvitri()">slice()</button>
+    <button onclick="sapxep()">sort()</button>
+    <button onclick="daonguoc()">reverse()</button>
+    <button onclick="sapxepcoham()">sort small to large</button>
+    <button onclick="sapxepcohamtulontoinho()">sort large to small</button>
+    <button onclick="sapxeptheoso()">sort number</button>
+    <button onclick="randomnumberinlist()">random number</button>
+    <button onclick="randomnumberver2()">random number ver2</button>
+    <button onclick="getValue()">get value less or more</button>
+    <button onclick="getMax()">get max</button>
+    <button onclick="getMin()">get min</button>
+    <button onclick="getMaxBasic()">get max basic</button>
+    <button onclick="getMinBasic()">get min basic</button>
+    <script>
+        randomnumberver2();
+        let listItem = [];
+        listItem.push("Trọng");
+        listItem.push("Hoa");
+        listItem.push("20");
+        listItem.push("Hanoi");
+
+        // toString() - chuyển thành chuỗi
+        function toTrinh () {
+            const value = document.getElementById("input").value;
+            document.getElementById("result").innerHTML = listItem.toString();
+        }
+        // join(kituthamgia) - tham gia ngăn cách giữa các phần tử
+        function thamgia () {
+            const value = document.getElementById("input").value;
+            document.getElementById("result").innerHTML = listItem.join(value);
+        }
+
+        // pop() - xóa phần tử cuối cùng
+        function xoaphantucuoi() {
+            listItem.pop();
+            document.getElementById("result").innerHTML = "Phần tử bị xóa là = " + listItem.pop();
+        }
+
+        // push() - thêm phần tử vào cuối mảng
+        function themphantu() {
+            const value = document.getElementById("input").value;
+            listItem.push(value);
+            document.getElementById("result").innerHTML = listItem;
+        }
+
+        // length - lấy độ dài mảng
+        function getLength() {
+            document.getElementById("result").innerHTML = "Độ dài mảng là " + listItem.length;
+        }
+
+        // shift() - xóa phần tử đầu tiên
+        function xoaphantudau () {
+            listItem.shift();
+            document.getElementById("result").innerHTML = listItem;
+        }
+
+        // unshift() - thêm phần tử vào đầu mảng
+        function themphantudaumang() {
+            const value = document.getElementById("input").value;
+            listItem.unshift(value);
+            document.getElementById("result").innerHTML = listItem;
+        }
+
+        // delete ( từ khóa ) - xóa phần tử
+        function xoaphantubangdelte() {
+            const value = Number.parseInt(document.getElementById("input").value);
+            delete listItem[value];
+            document.getElementById("result").innerHTML = listItem;
+        }
+
+        // concat() - ghép 2 mảng vào nhau
+        function ghepmang () {
+            const mang1 = ["Trọng","Hòa","Qúa","Đẹp"];
+            const mang2 = ["Hoa","Hà","Hải","Hạnh"];
+            listItem = listItem.concat(mang1, mang2);
+            document.getElementById("result").innerHTML = listItem;
+        }
+
+        // splice() - chèn phần tử vào mảng
+        function themphantumoivaomang () {
+            const value = document.getElementById("input").value.split(",");
+            const vitri = parseInt(prompt("Nhập số: "));
+            const soluong = parseInt(prompt("Nhập số lượng: "));
+            const result = listItem.splice(vitri, soluong, value[0], value[1]);
+            
+            // show alert
+            alert("Mở console để xem kết quả");
+            console.log(listItem);
+            console.log("Phần tử bị xóa đi là: " + result);
+        }
+
+        // splice(1,0) - xóa phần tử đầu tiên
+        function xoaphantudaumang() {
+            const value = document.getElementById("input").value.split(",");
+            console.log(value);
+            value.splice(0,1);
+            console.log(value);
+        }
+
+        // slice() - cắt phần tử phía sau theo vị trí (1->n)
+        function xoaphantuthemvitri() {
+            const value = document.getElementById("input").value.split(",");
+            console.log(value);
+            // ko ảnh hưởng tới mảng gốc , mà clone ra một mảng mới để làm việc đấy.
+            const newvalue = value.slice(parseInt(prompt("Nhập vị trí: ")),parseInt(prompt("Nhập vị trí giới hạn: ")));
+            console.log("After: " + newvalue);
+        }
+
+        // sort() - sắp xếp mảng theo thứ tự
+        function sapxep () {
+            console.log("Before: " + listItem);
+            listItem.sort();
+            console.log("After: " + listItem);a
+        }
+
+        // reverse() - đảo ngược mảng
+        function daonguoc () {
+            const value = document.getElementById("input").value.split(",");
+            value.reverse();
+            document.getElementById("result").innerHTML = value;
+        }
+
+        // sort(function(){}) - Sắp xếp có function
+        function sapxepcoham () {
+            const value = document.getElementById("input").value.split(",");
+            const numbers = [];
+            value.forEach(element => {
+                numbers.push(parseInt(element));
+            });
+
+            numbers.sort(function (a, b){
+                return a - b; // a - b is small to large
+            })
+
+            document.getElementById("result").innerHTML = numbers.join("-");
+        }
+
+        // sort(function(){}) - sắp xếp có function ( large to small )
+        function sapxepcohamtulontoinho () {
+            const value = document.getElementById("input").value.split(",");
+            const numbers = [];
+            value.forEach(element => {
+                numbers.push(parseInt(element));
+            });
+
+            numbers.sort(function (a, b){
+                return b - a; // b - a is large to small
+            });
+
+            document.getElementById("result").innerHTML = numbers.join("-");
+        }
+
+        //sort() - normal count is by alphabet
+        function sapxeptheoso () {
+            const value = document.getElementById("input").value.split(",");
+            const numbers = [];
+            value.forEach(phantu => {
+                numbers.push(parseInt(phantu));
+            });
+
+            numbers.sort();
+            document.getElementById("result").innerHTML = numbers.join('-');
+        }
+
+        //random number 
+        function randomnumberinlist () {
+            const value = document.getElementById("input").value.split(",");
+            const numbers = [];
+            value.forEach(phantu => {
+                numbers.push(parseInt(phantu));
+            })
+
+            numbers.sort(function (a, b){
+                return 0.5 - Math.random();
+            });
+
+            document.getElementById("result").innerHTML = numbers.join('-');
+        }
+
+        //random number ver 2 
+        function randomnumberver2 () {
+            const value = [100,20,4,5,3,56,78,24,64,23,45,78,49];
+            // đảo ngược quy trình
+            for (var i = value.length - 1; i > 0; i--) {
+                // random number
+                var j = Math.floor(i * Math.random());
+                var k = value[i];
+                value[i] = value[j];
+                value[j] = k;
+                
+            }
+            document.getElementById("result").innerHTML = value.join('-');
+        }
+
+        //get value less in list
+        function getValue () {
+            const value = document.getElementById("input").value.split(",");
+            const numbers = [];
+            value.forEach (phantu => {
+                numbers.push(parseInt(phantu));
+            });
+
+            const choose = parseInt(prompt("Nhập số: "));
+            if(choose == 1) {
+                value.sort(function (a,b) {
+                    return a - b;
+                });
+            } else if(choose == 2) {
+                value.sort(function (a,b) {
+                    return b - a;
+                });
+            }
+            
+            document.getElementById("result").innerHTML = value[0];
+        }
+
+        // get value max
+        function getMax () {
+            const value = document.getElementById("input").value.split(",");
+            const numbers = [];
+            value.forEach (phantu => {
+                numbers.push(parseInt(phantu));
+            });
+
+            document.getElementById("result").innerHTML = getValueMax(numbers);
+
+            function getValueMax(arr) {
+                return Math.max.apply(null, arr);
+            }
+        }
+
+        // get value min
+        function getMin () {
+            const value = document.getElementById("input").value.split(",");
+            const numbers = [];
+            value.forEach(phantu => {
+                numbers.push(parseInt(phantu));
+            })
+
+            document.getElementById("result").innerHTML = getValueMin(numbers);
+            function getValueMin(arr) {
+                return Math.min.apply(null,arr);
+            }
+        }
+
+        //get max basic
+
+        function getMaxBasic() {
+            const value = document.getElementById('input').value.split(",");
+            const numbers = [];
+            value.forEach(phantu => {
+                numbers.push(parseInt(phantu));
+            });
+            document.getElementById('result').innerHTML = getMax(numbers);
+            function getMax(arr) {
+                let getLen = arr.length;
+                let max = -Infinity;
+
+               
+                while(getLen--) {
+                    if (arr[getLen] > max) {
+                        max = arr[getLen];
+                    }
+                }
+
+                return max;
+            }
+        }
+
+        // get Min basic 
+        function getMinBasic () {
+            const value = document.getElementById("input").value.split(",");
+            const numbers = [];
+            value.forEach (phantu => {
+                numbers.push(phantu);
+            });
+            document.getElementById("result").innerHTML = getMin(numbers);
+            function getMin (arr) {
+                let getLen = arr.length;
+                let min = Infinity;  
+                while(getLen--) {
+                    if(arr[getLen] < min) {
+                        min = arr[getLen];
+                    }
+                }
+
+                return min;
+            }
+
+        }
+    </script>
+</body>
+</html>

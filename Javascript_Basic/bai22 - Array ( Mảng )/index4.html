@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result1">
+    </h1>
+    <br>
+    <h1 id="result2">
+    </h1>
+    <br>
+    <h1 id="result3">
+    </h1>
+    <br>
+    <h1 id="result4">
+    </h1>
+    <br>
+    <h1 id="result5">
+    </h1>
+    <br>
+    <h1 id="result6">
+    </h1>
+
+    <script>
+        {
+            const listItem = new Array(30);
+            document.getElementById("result1").innerHTML = listItem;
+            document.getElementById("result2").innerHTML = listItem.length;
+        }
+        {
+            const listItem = [];
+            listItem["fullName"] = "Trong Hoa";
+            listItem["age"] = 20;
+            listItem["address"] = "HN";
+
+            document.getElementById("result3").innerHTML = listItem instanceof Array;
+            if(Array.isArray(listItem)) {
+                document.getElementById("result4").innerHTML = "Đây là mảng";
+            } else {
+                document.getElementById("result4").innerHTML = "Đây không phải mảng";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .h1 {
+            font-size: 35px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="change_color">Trạng thái đổi màu</h1>
+    <button onclick="change_color(1)">vàng</button>
+    <button onclick="change_color(2)">Xanh nước biển</button>
+    <button onclick="change_color(3)">Màu cam</button>
+    <script>
+
+        function change_color(num) {
+            switch(num) {
+                case 1: 
+                    document.getElementById("change_color").innerHTML = "Đã thay đổi màu thành màu vàng";
+                    document.getElementById("change_color").style.color = "yellow";
+                    break;
+                case 2: 
+                    document.getElementById("change_color").innerHTML = "Đã thay đổi màu thành màu xanh nước biển";
+                    document.getElementById("change_color").style.color = "blue";
+                    break;
+                default: 
+                    document.getElementById("change_color").innerHTML = "Đã thay đổi màu thành màu cam";
+                    document.getElementById("change_color").style.color = "orange";
+            }
+        }
+    </script>
+</body>
+</html>

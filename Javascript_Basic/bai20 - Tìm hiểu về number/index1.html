@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result1"></h1>
+    <br>
+    <h1 id="result2"></h1>
+    <br>
+    <h1 id="result3"></h1>
+    <br>
+    <h1 id="result4"></h1>
+    <br>
+    <h1 id="result5"></h1>
+    <br>
+    <h1 id="result6"></h1>
+    <br>
+    <h1 id="result7"></h1>
+    <br>
+    <h1 id="result8"></h1>
+    <br>
+    <h1 id="result9"></h1>
+    <br>
+    <script>
+        {
+            let num1 , num2;
+            num1 = 1e9
+            num2 = num1;
+            num1 += num2;
+            document.getElementById("result1").innerHTML = num1;
+        }
+        {
+            let num1 , num2;
+            num1 = 1e99;
+            document.getElementById("result2").innerHTML = Number.isFinite(num1);
+
+        }
+        {
+            let number = 2;
+            while (number != Infinity) {
+                number *= number;
+          //      document.write(number + "<br>");
+            }
+
+            document.getElementById("result3").innerHTML = number;
+        }
+        {
+            let number = 2;
+            number += -4;
+            console.log(number / 0);
+        }
+        {
+            let number , number_str;
+            number = 2;
+            number_str = number.toString();
+            document.getElementById("result4").innerHTML = (number == number_str);
+            document.getElementById("result5").innerHTML = (number === number_str);
+        }
+        {
+            let number , number_str;
+            number = new Number(2);
+            number_str = new String(2);
+            document.getElementById("result6").innerHTML = (number == number_str);
+            document.getElementById("result7").innerHTML = (number === number_str);
+        }
+    </script>
+</body>
+</html>

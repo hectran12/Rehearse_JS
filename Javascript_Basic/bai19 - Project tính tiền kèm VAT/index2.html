@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="result"></table>
+    <button onclick="showStudent()">Show Student</button>
+    <script>
+        function showStudent() {
+            function student (firstName, lastName, Age) {
+                this.ten = firstName;
+                this.ho = lastName;
+                this.tuoi = Age;
+            }
+
+            var setHocSinh = Number.parseInt(prompt("Nhap so [1. gioi , 2. kha , 3. trung binh]: "));
+            if(setHocSinh == 1) {
+                student.prototype.bietdanh = "Hoc sinh gioi";
+            } else if(setHocSinh == 2) {
+                student.prototype.bietdanh = "Hoc sinh kha";
+            } else if(setHocSinh == 3) {
+                student.prototype.bietdanh = "Hoc sinh trung binh";
+            } else {
+                student.prototype.bietdanh = "Hoc sinh yeu";
+            }
+
+            let stu1, stu2, stu3, stu4;
+            stu1 = new student("Nguyen", "Van", 20);
+            stu2 = new student("Nguyen","Van B",19);
+            stu3 = new student("Nguyen","Van C",18);
+            stu4 = new student("Nguyen","Van D",17);
+
+            // set table
+            document.getElementById("result").innerHTML = `
+                <tr>
+                    <th>Ten</th>
+                    <th>Ho</th>
+                    <th>Tuoi</th>
+                    <th>Biet danh</th>
+                </tr>
+            `;
+            document.getElementById("result").innerHTML += `
+                <tr>
+                    <th>${stu1.ho}</th>
+                    <th>${stu1.ten}</th>
+                    <th>${stu1.tuoi}</th>
+                    <th>${stu1.bietdanh}</th>
+                </tr>
+                <tr>
+                    <th>${stu2.ho}</th>
+                    <th>${stu2.ten}</th>
+                    <th>${stu2.tuoi}</th>
+                    <th>${stu2.bietdanh}</th>
+                </tr>
+                <tr>
+                    <th>${stu3.ho}</th>
+                    <th>${stu3.ten}</th>
+                    <th>${stu3.tuoi}</th>
+                    <th>${stu3.bietdanh}</th>
+                </tr>
+                <tr>
+                    <th>${stu4.ho}</th>
+                    <th>${stu4.ten}</th>
+                    <th>${stu4.tuoi}</th>
+                    <th>${stu4.bietdanh}</th>
+                </tr>
+            `;
+        }
+    </script>
+</body>
+</html>

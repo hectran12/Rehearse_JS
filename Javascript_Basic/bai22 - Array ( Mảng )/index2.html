@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 id="result"></h1>
+    <input type="text" id="input">
+    <button onclick="add()">Thêm</button>
+  
+    <ol id="demo">
+        
+    </ol>
+    <script>
+        let listItem = []
+        function add() {
+            const value = document.getElementById("input").value;
+            listItem.push(value);
+            show();
+        }
+
+        function show() {
+            document.getElementById("demo").innerHTML = "";
+            for (let i = 0;i<listItem.length;i++) {
+                document.getElementById("demo").innerHTML += "<li>" + listItem[i] + "</li>";
+            }
+        }
+    </script>
+</body>
+</html>

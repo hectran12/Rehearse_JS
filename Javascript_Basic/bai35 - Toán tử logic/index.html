@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        {
+            bar("bằng bằng");
+            var x, y, z;
+            x = 10;
+            y = "10";
+            z = 5;
+            console.log(x == y);
+            console.log(x == z);
+        }
+        {
+            bar("so sánh === ")
+            var x, y, z;
+            x = 10;
+            y = 10;
+            z = "10";
+            console.log(x === y);
+            console.log(x === z);
+        }
+        {
+            bar("không bằng");
+            var x, y, z;
+            x = 10;
+            y = 9;
+            z = "10";
+            console.log(x != y);
+            console.log(x != z);
+        }
+        {
+            bar("Không bằng kể cả kiểu dữ liệu");
+            var x, y, z;
+            x = 10;
+            y = 10;
+            z = "10";
+            console.log(x !== y);
+            console.log(x !== z);
+        }
+        {
+            bar("Nhỏ hơn");
+            var x, y, z;
+            x = 10;
+            y = 15;
+            z = "20";
+            console.log(x < z);
+            console.log(x < y);
+        }
+        {
+            bar("Lớn hơn");
+            var x, y, z;
+            x = 10;
+            y = 24;
+            z = "50";
+            console.log(x > z);
+            console.log(z > y);
+        }
+        {
+            bar("Nhỏ hoặc bằng");
+            var x, y, z;
+            x = 10;
+            y = 15;
+            z = "10";
+            console.log(x <= z);
+            console.log(y >= x);
+        }
+        {
+            bar("Lớn hoặc bằng");
+            var x, y, z;
+            x = 12;
+            y = 15;
+            z = "25";
+            console.log(x >= y);
+            console.log(z >= x);
+        }
+        {
+            bar("lô git");
+            console.log(10 == 10 && 10 == 9);
+            console.log(10 == 10 && 10 == 10);
+            console.log(10 == 10 || 10 == 9);
+            console.log(!10 == 10);
+        }
+        {
+            bar("Toán tử bậc ba");
+            var result = 10 == 10 ? "Đúng" : "Sai";
+            console.log(result);
+            result = 10 == 9 ? "Đúng" : "Sai";
+            console.log(result);
+        }
+        {
+            // NaN là false
+            console.log(2 < "two");
+            console.log("2" >  "12"); // true vì so sánh chuỗi thì láy [0](num1) với [0](num2)
+            // vì 1 nhỏ hơn 2 thì lấy false
+        }
+        {
+            const result = parseInt(prompt("Nhập tuổi: ")) <= 18 ? "Trẻ trâu" : "Người lớn";
+            console.log(result);
+        }
+        function bar(text){
+            console.log("====================" + text + "===================");
+        }
+    </script>
+</body>
+</html>

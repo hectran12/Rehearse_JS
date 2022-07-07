@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+     Đặt: <input type="text" id="vanban">
+    <button onclick="datNam()">setFullYear()</button>
+    <button onclick="datNhieu()">setFullYear(year, month, day)</button>
+    <button onclick="datThang()">setMonth()</button>
+    <button onclick="datDate()">setDate()</button>
+    <button onclick="dateDateThem()">setDate() - 2</button>
+    <button onclick="setgio()">getHours</button>
+    <button onclick="setPhut()">getMinutes</button>
+    <button onclick="setgiay()">getSeconds</button>
+    <button onclick="checkdate()">checkdate()</button>
+    <script>
+        // check date
+        function checkdate() {
+            let date1, date2, new1, new2;
+            date1 = prompt("Nhập ngày tháng thứ nhất: ").split("-");
+            date2 = prompt("Nhâp ngày tháng thứ hai: ").split("-");
+            // year - month - day
+            new1 = new Date(parseInt(date1[0]), parseInt(date1[1]), parseInt(date1[2]));
+            new2 = new Date(parseInt(date2[0]), parseInt(date2[1]), parseInt(date2[2]));
+            if (new1 > new2) {
+                alert("Ngày tháng thứ nhất lớn hơn ngày tháng thứ hai");
+            } else if (new1 < new2) {
+                alert("Ngày tháng thứ nhất nhỏ hơn ngày tháng thứ hai");
+            } else {
+                alert("Ngày tháng thứ nhất bằng ngày tháng thứ hai");
+            }
+            
+        }
+        // new Date().setSeconds() - giây từ 0 -> 59 giây
+        function setgiay () {
+            var giay = parseInt(getVanban());
+            const d = new Date();
+            d.setSeconds(giay);
+            document.getElementById("result").innerHTML = d;
+        }
+        // new Date().setMinutes() - phút từ 0->59 phút
+        function setPhut() {
+            var phut = parseInt(getVanban());
+            const d = new Date();
+            d.setMinutes(phut);
+            document.getElementById("result").innerHTML = d;
+        }
+        // new Date().setHours() - set ngày từ 0 -> 23
+        function setgio() {
+            var gio = parseInt(getVanban());
+            const d = new Date();
+            d.setHours(gio);
+            document.getElementById("result").innerHTML = d;
+        }
+        // new Date().setDate(ngay them)
+        function dateDateThem() {
+            var ngay = parseInt(getVanban());
+            const d = new Date();
+            const ngaythem = d.getDate() + parseInt(prompt("Nhập ngày muốn thêm: "));
+            d.setDate(ngaythem);
+            document.getElementById("result").innerHTML = d;
+        }
+        // new Date().setDate(ngay) - theo format từ 1->31 ngày
+        function datDate() {
+            var ngay = parseInt(getVanban());
+            const d = new Date();
+            d.setDate(ngay);
+            document.getElementById("result").innerHTML = d;
+        }
+        // new Date().setMonth(tháng) - theo format từ 0->11 tương ứng 1->12 tháng
+        function datThang() {
+            var thang = parseInt(getVanban());
+            const d = new Date();
+            d.setMonth(thang);
+            document.getElementById("result").innerHTML = d;
+        }
+        // new Date().setFullYear() - Đặt nhiều
+        function datNhieu() {
+            var datesplit = getVanban().split(" ");
+            const d = new Date();
+            d.setFullYear(parseInt(datesplit[0]),parseInt(datesplit[1]),parseInt(datesplit[2]));
+            document.getElementById("result").innerHTML = d;
+        }
+
+        // new Date().setFullYear(năm) - set năm cho date
+        function datNam () {
+            const d = new Date();
+            d.setFullYear(parseInt(getVanban()));
+            document.getElementById("result").innerHTML = d;
+        }
+
+        // get văn bản
+        function getVanban () {
+            return document.getElementById("vanban").value;
+        }
+    </script>
+</body>
+</html>

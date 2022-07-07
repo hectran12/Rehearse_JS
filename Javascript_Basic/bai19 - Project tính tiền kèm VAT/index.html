@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Gia thanh:<input type="text" id="giathanh">
+    VAT:<input type="text" id="vat">
+    <button onclick="tinh()">Tinh</button>
+    <br>
+    <ol id="result">
+
+    </ol>
+
+    <script>
+        function tinh() {
+            const giathanh = document.getElementById("giathanh").value;
+            const vat = document.getElementById("vat").value;
+            const giathat = giathanh * (1 + vat / 100);
+            const time = new Date();
+            const allDate = "Ngay " + time.getDay() + " thang " + time.getMonth() + " nam " + time.getFullYear();
+            // add history
+            document.getElementById("result").innerHTML += `
+                <li>
+                    Gia mua: ${giathanh}
+                    VAT: ${vat}
+                    Gia thu: ${giathat}
+                    Ngay thang: ${allDate}
+                </li>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Vị trí muốn đổi: <input type="text" id="vitri"><br>
+    Kí tự muốn đổi thành: <input type="text" id="kitu"><br>
+    <button onclick="thaydoi()">Show</button>
+    <ol id="demo">
+
+    </ol>
+    <script>
+        const listHocSinh = [];
+        listHocSinh[0] = "Trọng";
+        listHocSinh[1] = "Hòa";
+        function thaydoi () {
+            const vitri = parseInt(document.getElementById("vitri").value);
+            const kitu = document.getElementById("kitu").value;
+            listHocSinh[vitri] = kitu;
+            show();
+        }
+
+        function show() {
+            document.getElementById("demo").innerHTML = "";
+            listHocSinh.forEach(addElement);
+        }
+
+        function addElement(value) {
+            document.getElementById("demo").innerHTML += "<li>" + value + "</li>";
+        }
+    </script>
+</body>
+</html>

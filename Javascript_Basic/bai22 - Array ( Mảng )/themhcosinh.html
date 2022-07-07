@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+  border:1px solid black;
+}
+    </style>
+</head>
+<body>
+    <h4 id="stt">Tổng số học sinh: </h4> <br>
+    <h4 id="message">Thông báo</h4>
+    Tên học sinh: <input type="text" id="tenhocsinh"> <br>
+    Lớp học: <input type="text" id="lophoc"> <br>
+    <button onclick="Themhocsinh()">Thêm học sinh</button>
+    <hr>
+    <table id="hocsinh">
+        
+    </table>
+    <script>
+        let stt;
+        stt = 0;
+
+        const listHocSinh = [];
+        function Themhocsinh() {
+            const tenhocsinh = document.getElementById("tenhocsinh").value
+            const lop = document.getElementById("lophoc").value;
+           
+            if(tenhocsinh == "" || lop == "") {
+                document.getElementById("message").innerText = "Vui lòng nhập đầy đủ thông tin cần thiết!";
+                document.getElementById("message").style.color = "red";
+            } else {
+                var check= false;
+                listHocSinh.forEach(element => {
+                    
+                    if(element.tenHocSinh == tenhocsinh && element.oLop == lop) {
+                        document.getElementById("message").innerText = "Học sinh đã tồn tại!";
+                        document.getElementById("message").style.color = "red";
+                        alert("Học sinh đã tồn tại!");
+                        check = true;
+                    }
+
+                });
+
+                
+                if(check == false) {
+                    const time = new Date();
+                    listHocSinh[stt] = {
+                        tenHocSinh : tenhocsinh,
+                        oLop : lop,
+                        ngayThem : "Ngày " + time.getDay() + " tháng " + time.getMonth() + " năm " + time.getFullYear() 
+                    };
+
+                    document.getElementById("message").innerText = "Thêm thành công học sinh";
+                    document.getElementById("message").style.color = "green";
+                    update_hocsinh();
+                    loadHocSinh();
+                }
+                
+            }
+        }
+
+        function loadHocSinh () {
+            document.getElementById("hocsinh").innerHTML = "";
+            document.getElementById("hocsinh").innerHTML += "<tr>";
+            document.getElementById("hocsinh").innerHTML += "<th>Tên học sinh<th>";
+            document.getElementById("hocsinh").innerHTML += "<th>Lớp<th>";
+            document.getElementById("hocsinh").innerHTML += "<th>Ngày thêm<th>";
+            document.getElementById("hocsinh").innerHTML += "</tr>";
+            listHocSinh.forEach(element => {
+                document.getElementById("hocsinh").innerHTML += "<tr>";
+                document.getElementById("hocsinh").innerHTML += "<td>" + element.tenHocSinh + "</td>";
+                document.getElementById("hocsinh").innerHTML += "<td>" + element.oLop + "</td>";
+                document.getElementById("hocsinh").innerHTML += "<td>" + element.ngayThem + "</td>";
+                document.getElementById("hocsinh").innerHTML += "</tr>";
+            });
+        }
+
+        function update_hocsinh () {
+            stt++;
+            document.getElementById("stt").innerText = `Tổng số học sinh: ${stt}`; 
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="result1"></h1>
+    <br>
+    <h1 id="result2"></h1>
+    <br>
+    <h1 id="result3"></h1>
+    <br>
+    <h1 id="result4"></h1>
+    <br>
+    <h1 id="result5"></h1>
+    <br>
+    <h1 id="result6"></h1>
+    <br>
+    <h1 id="result7"></h1>
+    <br>
+    <h1 id="result8"></h1>
+    <script>
+        {
+            const x = 5;
+            const y = "5";
+            document.getElementById("result1").innerHTML = x == y;
+            {
+                const x = 5;
+                const y = "5";
+                document.getElementById("result2").innerHTML = x === y;
+            }
+
+            {
+                const x = 6;
+                const y = 7;
+                document.getElementById("result3").innerHTML = x != y;
+            }
+
+            {
+                const x = 5;
+                const y = 5;
+                document.getElementById("result4").innerHTML = x !== y;
+            }
+
+            {
+                const x = 5;
+                const y = 6;
+                document.getElementById("result5").innerHTML = y > x;
+                document.getElementById("result6").innerHTML = y < x;
+            }
+
+            {
+                const x = 5;
+                const y = 6;
+                document.getElementById("result7").innerHTML = y <= x;
+                document.getElementById("result8").innerHTML = y >= x;
+            }
+        }
+    </script>
+</body>
+</html>

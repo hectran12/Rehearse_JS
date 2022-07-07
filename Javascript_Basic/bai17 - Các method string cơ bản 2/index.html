@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="result"></h1>
+    Chuỗi<input type="text" id="chuoi">
+    Kí tự muốn tìm:<input type="text" id="chuoi_2">
+    <button onclick='getViTriDau()'>Lay vi tri</button>
+    <button onclick="getViTriCuoi()">Lay vi tri cuoi</button>
+    <button onclick="getSearch()">Search</button>
+    <button onclick="getMath()">Math</button>
+    <button onclick="getMath2()">Math2</button>
+    <button onclick="check()">check</button>
+    <button onclick="check2()">check 2</button>
+    <button onclick="check3()">startsWith</button>
+    <button onclick="check4()">EndsWith</button>
+    <script>
+        
+        function getInput(so) {
+            if (so == 1) {
+                return document.getElementById("chuoi").value;
+            } else {
+                return document.getElementById("chuoi_2").value;
+            }
+        }
+
+        // indexOf - lấy vị trí đầu
+        function getViTriDau () {
+            const value = getInput(1);
+            const value_2 = getInput(2);
+            document.getElementById("result").innerHTML = value.indexOf(value_2,Number.parseInt(prompt("Nhập vị trí bắt đầu tìm: ")));
+        }
+
+        // lastIndexOf - lấy vị trị cuối
+        function getViTriCuoi () {
+            const value = getInput(1);
+            const value_2 = getInput(2);
+            document.getElementById("result").innerHTML = value.lastIndexOf(value_2,Number.parseInt(prompt("Nhập vị trí bắt đầu tìm: ")));
+
+        }
+
+        // search - tìm kiếm trong chuỗi
+        function getSearch () {
+            const value = getInput(1);
+            const value_2 = getInput(2);
+            document.getElementById("result").innerHTML = value.search(value_2);
+        }
+
+        // math - tim kí tự xuất hiện
+        function getMath () {
+            const value = getInput(1);
+            const value_2 = /trong/g
+            document.getElementById("result").innerHTML = value.match(value_2).length;
+        }
+
+        // math2 - tìm kiếm kí tự bát chấp kí tự hoa
+        function getMath2 () {
+            const value = getInput(1);
+            const value_2 = /trong/gi;
+            document.getElementById("result").innerHTML = value.match(value_2).length;
+        }
+
+        // includes - ghep chuoi
+        function check() {
+            const value = getInput(1);
+            const value_2 = getInput(2);
+            if(value.includes(value_2)) {
+                document.getElementById("result").innerHTML = value_2 + " co ton tai";
+            } else {
+                document.getElementById("result").innerHTML = value_2 + " khong ton tai";
+            }
+        }
+
+        // includes có params 
+        function check2 () {
+            const value = getInput(1);
+            const value_2 = getInput(2);
+            if(value.includes(value_2,Number.parseInt(prompt("Nhap vi tri bat dau: ")))){
+                document.getElementById("result").innerHTML = value_2 + " co ton tai";
+            } else {
+                document.getElementById("result").innerHTML = value_2 + " khong ton tai";
+            }
+        }
+
+        // startsWith - kiểm tra chuỗi bắt đầu với chuỗi nào
+        function check3 () {
+            const value = getInput(1);
+            const value_2 = getInput(2);
+            if(value.startsWith(value_2,Number.parseInt(prompt("Nhap so bat dau: ")))) {
+                document.getElementById("result").innerHTML = value + " bat dau voi " + value_2;
+            } else {
+                document.getElementById("result").innerHTML = value + " khong bat dau voi " + value_2;
+            }
+        }
+
+        //endsWith - kiểm tra chuỗi kết thúc với chuỗi nào
+        function check4 () {
+            const value = getInput(1);
+            const value_2 = getInput(2);
+            if(value.endsWith(value_2,Number.parseInt(prompt("Nhap so bat dau: ")))) {
+                document.getElementById("result").innerHTML = value + " ket thuc voi " + value_2;
+            } else {
+                document.getElementById("result").innerHTML = value + " khong ket thuc voi " + value_2;
+            }
+        }
+    </script>
+</body>
+</html>

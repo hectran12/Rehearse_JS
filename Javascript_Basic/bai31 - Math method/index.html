@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h3 id="result"></h3>
+        <br><br>
+        Số: <input type="text" id="number">
+        <br><br>
+        <button onclick="lamtron()">Làm tròn</button>
+        <button onclick="nguyenhat()">Lấy số nguyên gần nhất</button>
+        <button onclick="làm_tròn_xuống_số_nguyên_gần_nhất()">làm tròn xuống số nguyên gần nhất</button>
+        <button onclick="layphannguyen()">lấy phần nguyên</button>
+        <button onclick="laydaucauso()">lấy đầu của số</button>
+        <button onclick="luythua()">lũy thừa</button>
+        <button onclick="canbac2()">cân bằc 2</button>
+        <button onclick="giatrituyetdoi()">gia tri tuyet doi</button>
+        <button onclick="tinhsin()">sin()</button>
+        <button onclick="tinhcos()">cos()</button>
+        <button onclick="findminmax()">fin min max</button>
+        <button onclick="rand()">random</button>
+        <button onclick="logarit()">logarit()</button>
+        <button onclick="logarit2()">logarit2()</button>
+        <button onclick="logarit10()">logarit10()</button>
+        <button onclick="arccosin()">arccosin()</button>
+        <button onclick="cosin_hyperbolic()">cosin_hyperbolic</button>
+        <Button onclick="asin_sin()">asin()</Button>
+        <button onclick="asinh()">asinh()</button>
+        <button onclick="atan()">atan()</button>
+        <button onclick="atan2()">atan2()</button>
+        <button onclick="atanh()">atanh()</button>
+        <button onclick="cbrt()">cbrt()</button>
+        <button onclick="cosh()">cosh()</button>
+        <button onclick="exp()">exp()</button>
+        <button onclick="sinh()">sinh()</button>
+        <Button onclick="tan()">tan()</Button>
+        <Button onclick="tanh()">tanh()</Button>
+    </center>
+    <script>
+        //tanh()
+        function tanh() {
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.tanh(num);
+        }
+        // tan()
+        function tan() {
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.tan(num);
+        }
+        // sinh()
+        function sinh(){
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.sinh(num);
+        }
+        // exp()
+        function exp() {
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.exp(num);
+        }
+        // cosh(x) = (e^x + e^(-x))/2
+        function cosh(){
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.cosh(parseInt(num));
+        }
+        // cbrt(x)
+        function cbrt() {
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.cbrt(parseInt(num));
+        }
+        // atanh(x)
+        function atanh() {
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.atanh(parseFloat(num));
+        }
+        // atan2(y,x)
+        function atan2() {
+            var num = document.getElementById("number").value.split(",");
+            document.getElementById("result").innerHTML = Math.atan2(parseInt(num[0]), parseInt(num[1]));
+        }
+        // atan() 
+        function atan() {
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.atan(num);
+        }
+        // asinh() 
+        function asinh() {
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.asinh(num);
+        }
+        // asin 
+        function asin_sin() {
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.asin(num);
+        }
+        // cosin hyperbolic của một số
+        function cosin_hyperbolic() {
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.acosh(num);
+        }
+        // arccosin của một số
+        function arccosin (){
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.acos(num);
+        }
+        // logarit10 
+        function logarit10 (){
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.log10(num);
+        }
+        // logarit2
+        function logarit2() {
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.log2(num);
+        }
+        // logarit 
+        function logarit() {
+            var num = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = Math.log(num);
+        }
+
+        // random
+        function rand() {
+            setInterval(()=>{
+                document.getElementById("result").innerHTML = Math.random();
+            },1000);
+        }
+        // tìm min max 
+        function findminmax() {
+            var element = document.getElementById("number").value.split(",");
+            const numbers = [];
+            element.forEach(phantu => {
+                numbers.push(parseInt(phantu));
+            });
+            const ask = parseInt(prompt("Bạn muốn tìm min hay max ( tương ứng 1 với 2 ): "));
+            switch (ask) {
+                case 1: 
+                    document.getElementById("result").innerHTML = Math.min(numbers[0],numbers[1],numbers[2]);
+                    break;
+                case 2: 
+                    document.getElementById("result").innerHTML = Math.max(numbers[0],numbers[1],numbers[2]);
+                    break;
+                default: 
+                    break;
+            }
+        }
+        // cos() - tính cos
+        function tinhcos() {
+            var num = Math.cos(0 * Math.PI / 180);
+            document.getElementById("result").innerHTML = num;
+        }
+        // sin() - tính sin
+        function tinhsin() {
+            var num = Math.sin(90 * Math.PI / 180);
+            document.getElementById("result").innerHTML = num;
+        }
+        // abs() - giá trị tuyệt đối
+        function giatrituyetdoi() {
+            var num = Math.abs(parseFloat(vanban()));
+            document.getElementById("result").innerHTML = num;
+        }
+        // sqrt() - căn bậc hai
+        function canbac2() {
+            var num = Math.sqrt(parseInt(vanban()));
+            document.getElementById("result").innerHTML = num;
+        }
+        // pow() - lũy thừa
+        function luythua() {
+            var num = Math.pow(parseInt(vanban()),2);
+            document.getElementById("result").innerHTML = num;
+        }
+        // sign() - lấy dấu của số
+        function laydaucauso() {
+            var num = Math.sign(parseInt(vanban()));
+            document.getElementById("result").innerHTML = num;
+        }
+        // trunc() - lấy phần nguyên
+        function layphannguyen() {
+            var num = Math.trunc(parseFloat(vanban()));
+            document.getElementById("result").innerHTML = num;
+        }
+        // floor() - làm tròn xuống số nguyên gần nhất
+        function làm_tròn_xuống_số_nguyên_gần_nhất () {
+            var num = Math.floor(parseFloat(vanban()));
+            document.getElementById("result").innerHTML = num;
+        }
+        // ceil() - trả về số nguyên gần nhất
+        function nguyenhat () {
+            var num = Math.ceil(parseFloat(vanban()));
+            document.getElementById('result').innerHTML = num;
+        }
+        // round() - làm tròn số
+        function lamtron() {
+            var num = Math.round(parseFloat(vanban()));
+            document.getElementById("result").innerHTML = num;
+        }
+
+        function vanban() {
+            return document.getElementById("number").value;
+        }
+    </script>
+</body>
+</html>

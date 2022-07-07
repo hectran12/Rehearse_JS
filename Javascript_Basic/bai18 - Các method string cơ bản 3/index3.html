@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    Chuỗi: <input type="text" id="chuoi">
+    <button onclick="an_chor()">Anchor</button>
+    <button onclick="to()">big</button>
+    <button onclick="lamden()">bold</button>
+    <button onclick="phichxich()">fixed</button>
+    <button onclick="mauchu()">fontcolor</button>
+    <button onclick="chinhfont()">fontsize</button>
+    <button onclick="lamnghieng()">italics</button>
+    <button onclick="lamlink()">link</button>
+    <button onclick="nho()">small</button>
+    <button onclick="ngach()">strike</button>
+    <button onclick="tomtat()">sub</button>
+    <button onclick="otren()">sup</button>
+    <script>
+
+
+        function an_chor () {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = "Trong hoa ne".anchor(value);
+        }
+
+        function to() {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.big();
+        }
+
+        function lamden () {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.bold();
+        }
+
+        function phichxich () {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.fixed();
+        }
+
+        function mauchu() {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.fontcolor(prompt("What color?: "));
+        }
+
+        function chinhfont () {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.fontsize(Number.parseInt(prompt("Nhap kich co: ")));
+        }
+
+        function lamnghieng() {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.italics();
+        }
+
+        function lamlink () {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.link(prompt("Nhap link: "));
+        }
+
+        function nho() {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.small();
+        }
+
+        function ngach () {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.strike();
+        }
+
+        function tomtat () {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.sub();
+        }
+
+        function otren () {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.sup();
+        }
+    </script>
+</body>
+</html>

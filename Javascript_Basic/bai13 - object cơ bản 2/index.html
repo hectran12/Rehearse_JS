@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <br>
+    <h1 id="result2"></h1>
+    <br>
+    <h1 id="result3"></h1>
+    <br>
+    <h1 id="result4"></h1>
+    <br>
+    <h1 id="result5"></h1>
+    <br>
+
+    <h1 id="car"></h1>
+    <img id="xe" src="https://www.w3schools.com/js/objectExplained.gif" style="width:368px;height:230px;margin-left:-68px;margin-top:-40px">
+    <button onclick="anXe()">An xe</button>
+    <button onclick="hienXe()">Hien xe</button>
+    <button onclick="getName()">Get name</button>
+    <button onclick="getVer()">Get ver</button>
+    <button onclick="getYear()">Get year</button>
+    <button onclick="getColor()">Get color</button>
+    <button onclick="getPrice()">Get price</button>
+    <button onclick="getSpeed()">Get speed</button>
+    <button onclick="getInfo()">Get info</button>
+    <button onclick="getMaLuc()">Get Ma Luc</button>
+    <script>
+        {
+            // objects
+            let hoTen = new String("Trần Trọng Hòa");
+            let age = new Number(19);
+            let isActive = new Boolean(true);
+            let obj = new Object();
+            // get types
+            document.getElementById("result").innerHTML = typeof hoTen;
+            document.getElementById("result2").innerHTML = typeof age;
+            document.getElementById("result3").innerHTML = typeof isActive;
+            document.getElementById("result4").innerHTML = typeof obj;
+            /**
+             * All is type of Objects
+             * */ 
+
+        }
+
+        {
+            // display element
+            document.getElementById("result").style.display = "none";
+            document.getElementById("result2").style.display = "none";
+            document.getElementById("result3").style.display = "none";
+            document.getElementById("result4").style.display = "none";
+            document.getElementById("result5").style.display = "none";
+
+            // create obj car
+            const car = {
+                name : "BMW",
+                version : "X5",
+                color : "gray",
+                year : "2020",
+                price : "100000",
+                speed : 100,
+                getInfo : function() {
+                    return "Name: "+this.name+" , version: "+this.version+"<br>Color: "
+                    + this.color + ", year: "+ this.year +", price: "+ this.price;
+                },
+                getMaLuc : function() {
+                    return "Speed: "+this.speed;
+                }
+            };
+
+            function getName () {
+                document.getElementById("car").innerHTML = car.name;
+            }
+
+            function getVer () {
+                document.getElementById("car").innerHTML = car.version;
+            }
+
+            function getColor () {
+                document.getElementById("car").innerHTML = car.color;
+            }
+
+            function getYear () {
+                document.getElementById("car").innerHTML = car.year;
+            }
+
+            function getPrice () {
+                document.getElementById("car").innerHTML = car.price;
+            }
+
+            function getSpeed () {
+                document.getElementById("car").innerHTML = car.speed;
+            }
+
+            function getInfo () {
+                document.getElementById("car").innerHTML = car.getInfo();
+            }
+            
+            function getMaLuc () {
+                document.getElementById("car").innerHTML = car.getMaLuc();
+            }
+            function anXe () {
+                document.getElementById("xe").style.display = "none";
+            }
+            
+            function hienXe () {
+                document.getElementById("xe").style.display = "block";
+            }
+        }
+
+        {
+
+            
+        }
+    </script>
+</body>
+</html>

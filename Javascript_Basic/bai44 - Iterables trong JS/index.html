@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        // bạn nên nhớ, khi áp dụng vòng lặp trên một chuỗi được gán vào một hằng (const)
+        // thì khi duyệt bằng vòng lặp for of thì chuỗi nhận cần phải là một hằng i hệt
+        // example:
+        iterables();
+        function iterables() {
+            const text = prompt("Nhập chuỗi: ");
+            for(const x of text) {
+                console.log(x);
+            }
+
+            // tương tự lại với list
+            const listItem = ['Cây búa','Cây kéo','Cây lmao'];
+            for(const x of listItem) {
+                console.log(x);
+            }
+        }
+        // lặp lại trên tập hợp set
+        taphopset();
+        function taphopset() {
+            const taphop = new Set([10,20,30]);
+            for (const x of taphop) {
+                console.log(x);
+                console.log(typeof taphop);
+            }
+        }
+
+        // lặp lại trên bảng đồ (map)
+        bando();
+        function bando() {
+            var map = new Map([
+                ["Thịt heo",300],
+                ["Thịt bò",200],
+                ["Thị cá",400]
+            ]);
+            let text = "";
+            for (const x of map) {
+                text += "Tên: " + x[0] + " , giá: " + x[1] + "||";
+            }
+            var vitri = text.lastIndexOf("||");
+            var sltext = text.slice(0,vitri);
+            console.log(sltext);
+        }
+    </script>
+</body>
+</html>

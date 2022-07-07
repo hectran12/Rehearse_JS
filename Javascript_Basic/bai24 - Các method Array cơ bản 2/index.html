@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="hienbangforEach()">Hien bang forEach</button>
+    <button onclick="phuongthucmap()">phuong thuc map arr.map(function)</button>
+    <button onclick="locso()">loc so</button>
+    <button onclick="riduce()">Tổng của mảng</button>
+    <button onclick="reduceRightTest()">reduceRightTest()</button>
+    <button onclick="kiemtratatca()">every</button>
+    <button onclick="kiemtratatca1()">some</button>
+    <button onclick="timvitri()">indexOf()</button>
+    <button onclick="lastvitri()">lastIndexOf()</button>
+    <button onclick="timphantu()">find() and findIndex()</button>
+    <button onclick="cv2form()">Array.form()</button>
+    <button onclick="getAllKeys()">keys()</button>
+    <button onclick="getEntri()">entries()</button>
+    <button onclick="check1()">includes()</button>
+    <ul id="demo"></ul>
+    <script>
+        let numbers = [10,45,9,32,56,23,78,94,34,22,5];
+        let items = ['Trọng','Hòa','Trọng','Đẹp','Trai','Trọng','Hòa','Trọng','Đẹp','Trai','Trọng','Hòa','Trọng','Đẹp','Trai'];
+        // duyệt bằng vòng lập forEach()
+        function hienbangforEach() {
+            document.getElementById("demo").innerHTML = "";
+            numbers.forEach(output);
+            function output (element, index , arr) {
+                document.getElementById("demo").innerHTML += `
+                    <li>${index} => ${element} => ${arr}</li>
+                `;
+            }
+        }
+
+        // method Map - array.map(function)
+        function phuongthucmap() {
+            document.getElementById("demo").innerHTML = "";
+            const mang2 = numbers.map(output);
+            function output (element, index, ar) {
+                document.getElementById("demo").innerHTML += `
+                    <li>${index} => ${element}</li>
+                `;
+            }
+        }
+
+        // filter() - lọc
+        function locso() {
+            document.getElementById("demo").innerHTML = "";
+            let solon = parseInt(prompt("Nhập số muốn so sánh: "))
+            const mang2 = numbers.filter(loc).map(output);
+            function loc(element, index) {
+                return element > solon;
+            }
+
+            function output (element, index) {
+                document.getElementById("demo").innerHTML += `
+                    <li> ${index} => ${element} </li>
+                `;
+            }
+        }
+
+        // reduce - tích
+        function riduce () {
+            document.getElementById("demo").innerHTML = "";
+            var tong = numbers.reduce(tich);
+            document.getElementById("demo").innerHTML = `
+                <li>Tổng của mảng là: ${tong}</li>
+            `;
+            function tich (truocdo, tiep, index, arr) {
+                return truocdo + tiep;
+            }
+        }
+
+
+        // reduceRight() - tính tích từ trái sang
+        function reduceRightTest() {
+            document.getElementById("demo").innerHTML = "";
+            var tong = numbers.reduceRight(tich);
+            document.getElementById("demo").innerHTML += `
+                <li>Tổng của mảng là: ${tong}</li>
+            `;
+            function tich (truocdo, tiep, index, arr) {
+                return truocdo + tiep;
+            }
+        }
+
+        // every() - kiểm tra tất cả phần tử theo ý muốn
+        function kiemtratatca () {
+            document.getElementById("demo"),innerHTML = "";
+            let solon = parseInt(prompt("Nhập số muốn so sánh: "));
+            let kiemtraz = numbers.every(kiemtra);
+            document.getElementById("demo").innerHTML = `
+                <li>${kiemtraz}</li>
+            `;
+            function kiemtra (value, index, arr) {
+                return value > solon;
+            }
+        }
+
+        // some() - kiểm tra tất cả phần tử theo ý muốn
+        function kiemtratatca1 () {
+            document.getElementById("demo").innerHTML = "";
+            let solon = parseInt(prompt("Nhập số muốn so sánh: "));
+            let kiemtraz = numbers.some(kiemtra);
+            document.getElementById("demo").innerHTML = `
+                <li>${kiemtraz}</li>
+            `;
+            function kiemtra (value, index, arr) {
+                return value > solon;
+            }
+        }
+
+        // indexOf() - tìm vị trí của phần tử trong mảng
+        function timvitri() {
+            document.getElementById("demo").innerHTML = "";
+            const kitu = parseInt(prompt("Nhập kí tự muốn tìm: "));
+            let vitri = numbers.indexOf(kitu);
+            if(parseInt(vitri) == -1) {
+                document.getElementById("demo").innerHTML = "Không tìm thấy kí tự mà bạn muốn";
+            } else {
+                var vitrinatural = parseInt(vitri) + 1;
+                document.getElementById("demo").innerHTML = "Vị trí lấy element: " + vitri + ", vị trí tự nhiên " + vitrinatural;
+            }
+            
+        }
+
+        // lastIndexOf() - tìm vị trí sau phần tử của mảng
+        function lastvitri() {
+            let vitri = items.lastIndexOf(prompt("Nhập kí tự: "),parseInt(prompt("Nhập vị trí bắt đầu: ")));
+            document.getElementById("demo").innerHTML = "Vị trí lấy element cuối cùng là: " + vitri;
+        }
+
+        // find() - tìm vị trí đầu tiên của phần tử trong mảng
+        function timphantu () {
+            let solon = parseInt(prompt("Nhập số: "));
+            var vitricuoi;
+            if(prompt("Muốn trả về vị trí thì ấn y , còn phần tử thì n: ").toLowerCase() == "y") {
+                vitricuoi = numbers.findIndex(timvi);
+            } else {
+                vitricuoi = numbers.find(timvi);
+            }
+            
+            document.getElementById("demo").innerHTML += `
+                <li>Phần tử đầu tiên: ${vitricuoi}</li>
+            `;
+            function timvi(value, index, arr) {
+                document.getElementById("demo").innerHTML += `
+                    <li>
+                `;
+                if(value >= solon) {
+                    document.getElementById('demo').innerHTML += `
+                        ${index} => ${value} ( thoải mãn điều kiện )
+                    `;
+                } else {
+                    document.getElementById('demo').innerHTML += `
+                        ${index} => ${value}
+                    `;
+                }
+                document.getElementById("demo").innerHTML += '</li>';
+                return value > solon;
+            }
+        }
+
+        // Array.form() - biến chuỗi thành array
+        function cv2form() {
+            var chuoi = prompt("Nhập chuỗi: ");
+            var newarray = Array.from(chuoi);
+            console.log(newarray);
+        }
+
+        // get all keys 
+        function getAllKeys() {
+            document.getElementById("demo").innerHTML = "";
+            var keys = numbers.keys();
+            for(let item of keys) {
+                document.getElementById("demo").innerHTML += `
+                    <li>
+                        ${item}
+                    </li>
+                `;
+            }
+        }
+
+        // get entries() - lấy tất cả phần tử của mảng
+        function getEntri() {
+            var entries = numbers.entries();
+            document.getElementById("demo").innerHTML += "";
+            for(let item of entries) {
+                document.getElementById("demo").innerHTML += `
+                    <li>
+                        ${item[0]}: ${item[1]}
+                    </li>
+                `;
+            }
+        }
+
+        // includes() - kiểm tra phần tử có trong list
+        function check1 () {
+            document.getElementById("demo").innerHTML = "";
+            document.getElementById("demo").innerHTML += `
+                <li>${items.includes(prompt("Nhập số muốn kiểm tra: "))}</li>
+            `;
+        }
+    </script>
+</body>
+</html>

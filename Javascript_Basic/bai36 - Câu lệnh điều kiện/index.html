@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h3 id="date"></h3><br>
+        <p id="thongbao"></p>
+        <br>
+        <p id="thongbao2"></p>
+        <br>
+        <p id="thongbao3"></p>
+    </center>
+    <script>
+
+        setInterval(()=>{
+            let year, month, day, hour, minute, second, milisecond, text;
+            var d = new Date();
+            year = d.getFullYear();
+            month = d.getMonth() + 1;
+            day = d.getDate();
+            hour = d.getHours();
+            minute = d.getMinutes();
+            second = d.getSeconds();
+            milisecond = d.getMilliseconds();
+            text = "Ngày " + day + " tháng " + month + " năm " + year + " lúc " + hour + ":" + minute + ":" + second + ":" + milisecond;
+            document.getElementById("date").innerHTML = text;
+            setText = function (text) {
+                document.getElementById("thongbao").innerHTML = text;
+                console.log(text);
+            }
+
+            setText2 = function (text) {
+                document.getElementById('thongbao2').innerHTML = text;
+                console.log(text);
+            }
+
+            setText3 = function (text) {
+                document.getElementById("thongbao3").innerHTML = text;
+                console.log(text);
+            }
+            if(year % 4 == 0) {
+                setText2("Năm nhuần");
+            } else if(year % 4 > 0){
+                setText2("Không nhuần");
+            }
+
+            if(hour >= 6 && hour >= 12) {
+                setText3("Chào buổi sáng");
+            }
+            if(hour >= 13 && hour >= 15) {
+                setText3("Chào buổi chiều");
+            }
+            if(hour >= 23 && hour >= 22) {
+                setText3("Chào buổi tốt");
+            }
+            if(second % 2 == 0) {
+                setText("Đã qua hằng chục giây!");
+            } else if(minute % 2 == 0) {
+                setText("Đã qua hằng chục phút!");
+            } else if (hour % 2 == 0) {
+                setText("Đã qua hằng chục giờ!");
+            } else if (month % 2 == 0) {
+                setText("Đã qua hằng chục tháng!");
+            } else {
+                setText("Không rõ cái gì ở kia");
+            }
+        },0);
+        
+    </script>
+</body>
+</html>

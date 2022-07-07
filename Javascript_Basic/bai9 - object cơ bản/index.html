@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="result">ket qua</h1>
+    <br>
+    <h1 id="result1"></h1>
+    <br>
+    <h1 id="result2"></h1>
+    <script>
+        const PI = 3.14;
+        const PI2 = 2.14;
+        const Result = PI + PI2;
+        document.getElementById("result").innerHTML = Result;
+
+        // output
+        const listName = ["trọng","hòa","đẹp","trai"];
+        document.getElementById("result1").innerHTML = listName.toString();
+
+        const dictName = {
+            fullName : "Trong Hoa",
+            age : 20,
+            address : "Hà Nội"
+        };
+
+        document.getElementById("result2").innerHTML = dictName.fullName.toString();
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <center>
+        <button onclick="getSoPI()">PI</button>
+        <button onclick="getSoE()">E</button>
+        <button onclick="getSQRT2()">SQRT2</button>
+        <button onclick="getSQRT1_2()">SQRT1_2</button>
+        <button onclick="getLN10()">LN10</button>
+        <button onclick="getLOG2E()">LOG2E</button>
+        <button onclick="getLN2()">LN2</button>
+        <button onclick="getLOG10E()">LOG10E</button>
+    </center>
+    <script>
+        function getLOG10E() {
+            var LOG10E = Math.LOG10E;
+            document.getElementById("result").innerHTML = LOG10E;
+        }
+        function getLOG2E() {
+            var LOG2E = Math.LOG2E;
+            document.getElementById("result").innerHTML = LOG2E;
+        }
+        function getLN10() {
+            var LN10 = Math.LN10;
+            document.getElementById("result").innerHTML = LN10;
+        }
+        function getSQRT1_2() {
+            var SQRT1_2 = Math.SQRT1_2;
+            document.getElementById("result").innerHTML = SQRT1_2;
+        }
+        function getLN2() {
+            var LN2 = Math.LN2;
+            document.getElementById("result").innerHTML = LN2;
+        }
+        function getSQRT2() {
+            var SQRT2 = Math.SQRT2;
+            document.getElementById("result").innerHTML = SQRT2;
+        }
+        function getSoE() {
+            var e = Math.E;
+            document.getElementById("result").innerHTML = e;
+        }
+        function getSoPI() {
+            var pi = Math.PI;
+            document.getElementById("result").innerHTML = pi;
+        }
+    </script>   
+</body>
+</html>

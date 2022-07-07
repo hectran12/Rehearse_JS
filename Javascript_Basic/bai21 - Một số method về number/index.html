@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    Số: <input type="text" id="number">
+    <button onclick="toTrinh()">toString()</button>
+    <button onclick="toEpToNenTial()">toExponential()</button>
+    <button onclick="toSua()">toFixed()</button>
+    <button onclick="toPoReSiAn()">toPrecision()</button>
+    <button onclick="parseToNumber()">parseToNumber()</button>
+    <button onclick="parseToDateNumber()">parseToDateNumber()</button>
+    <button onclick="strToNumber()">strToNumber()</button>
+    <button onclick="strToFloat()">strToFloat()</button>
+    <button onclick="document.getElementById('result').innerHTML = Number.MAX_VALUE;">MAX VALUE</button>
+    <button onclick="document.getElementById('result').innerHTML = Number.MIN_VALUE;">MIN VALUE</button>
+    <button onclick="document.getElementById('result').innerHTML = Number.POSITIVE_INFINITY;">POSITIVE INFINITY</button>
+    <button onclick="document.getElementById('result').innerHTML = Number.NEGATIVE_INFINITY;">NEGATIVE INFINITY</button>
+    <button onclick="document.getElementById('result').innerHTML = Number.NAN;">NAN</button>
+    <button onclick="document.getElementById('result').innerHTML = Number.EPSILON;">EPSILON</button>
+    <button onclick="document.getElementById('result').innerHTML = Number.MAX_SAFE_INTEGER;">MAX_SAFE_INTEGER</button>
+    <button onclick="document.getElementById('result').innerHTML = Number.MIN_SAFE_INTEGER;">MIN_SAFE_INTEGER</button>
+    <button onclick="document.getElementById('result').innerHTML = Number.isFinite(1);">isFinite(1)</button>
+    <button onclick="document.getElementById('result').innerHTML = Number.isFinite(NaN);">isFinite(NaN)</button>
+    <button onclick="check()">check</button>
+    <button onclick="parseInt()">parse int</button>
+    <script>
+      
+        // chuyển thành chuỗi - toString()
+        function toTrinh() {
+            const number = Number.parseInt(document.getElementById("number").value);
+            document.getElementById("result").innerHTML = number.toString() + " , kiểu dữ liệu hiện giờ là: " + typeof number.toString();
+        }
+        // giới hạn số chữ số sau dấu phẩy - toExponential() ( nhưng có thêm e và cũng làm tròn )
+        function toEpToNenTial () {
+            const number = Number.parseInt(document.getElementById("number").value);
+            document.getElementById("result").innerHTML = number.toExponential(Number.parseInt(prompt("Nhập số giới hạn: ")));
+        }
+
+        // giới hạn số chữ số sau dấu phẩy - toFixed() ( nhưng làm tròn nếu chỉ đưa vào 1 )
+        function toSua () {
+            const number = Number.parseInt(document.getElementById("number").value);
+            document.getElementById("result").innerHTML = number.toFixed(Number.parseInt(prompt("Nhap so luong muon sau dau phay: ")));
+        }
+
+        // giới hạn số chữ số cả nguyên và dư - toPrecision()
+        function toPoReSiAn () {
+            const number = Number.parseInt(document.getElementById("number").value);
+            document.getElementById("result").innerHTML = number.toPrecision(Number.parseInt(prompt("Nhap so: ")));
+        }
+
+        // parse to number bằng method Number()
+        function parseToNumber () {
+            let number , number_str;
+            number_str = "123";
+            number = Number(number_str);
+            alert(`${number}, type is ${typeof number}`);
+        }
+
+        // sử dụng Number vớ new Date()
+        function parseToDateNumber () {
+            const number = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = "Số miligiay la " + Number(new Date(number));
+        }
+
+        // parse int
+        function strToNumber () {
+            const number = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = parseInt(number);
+        }
+
+        // parse float
+        function strToFloat () {
+            const number = document.getElementById("number").value;
+            document.getElementById("result").innerHTML = parseFloat(number);
+        }
+
+        // check number
+
+        function check () {
+            const number = 8;
+            document.getElementById("result").innerHTML = parseInt(prompt("Nhập số: ")) / "Mot tram";
+        }
+
+        // number parse int
+        function parseInt () {
+            let number , number2;
+            number = 5;
+            number2 = number.MAX_VALUE;
+            alert(number2);
+        }
+    </script>
+</body>
+</html>

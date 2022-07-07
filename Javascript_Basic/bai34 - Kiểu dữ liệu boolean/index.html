@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // true
+        const vidu1 = Boolean("true");
+        const vidu2 = Boolean(100);
+
+
+        // false
+        const vidu3 = Boolean(0);
+        const vidu4 = Boolean(-0);
+        const vidu5 = Boolean(""); // chuỗi rỗng là false
+        var x;
+        const vidu6 = Boolean(x); // undefined là false
+        const vidu7 = Boolean(null); // null là false
+        const vidu8 = Boolean(false); // false cũng là false 
+        const vidu9 = Boolean(10 / "trong"); // NaN cũng là false
+
+        // đối tượng boolean
+        var x = true, y = new Boolean(false);
+        console.log(typeof x);
+        console.log(typeof y);
+
+        // khi so sánh
+        var x = new Boolean(false), y = (10 < 9);
+        console.log((x==y)); //"object" so sánh với "boolean" , nếu cùng giá trị thì vẫn
+        // như nhau
+
+        // xét về so sánh kiểu dữ liệu thì khác
+        console.log((x===y)); // "object" và "boolean" hoàn toàn khác nhau
+
+        // kia là đối với boolean và object, nhưng đối với object và object thì chúng no sanh ra
+        // trường hợp khác
+        // vì cơ cấu chúng nó không giống nhau kể cả là cùng giá trị thực tế
+        var a = new Boolean(false), b = new Boolean(false);
+        console.log((a==b)); // "Object" so sánh với "object" là khác nhau
+        // kê cả nếu cùng kiểu dữ liệu là "Object" khi so sánh === thì vẫn là false 
+        // vì thực tế là chúng khác nhau
+        console.log((a===b));
+    </script>
+</body>
+</html>

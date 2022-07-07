@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nhap chuoi <input type="text" id="chuoi">
+    <button id="btn" onclick="laydodai()">Lay do dai</button>
+    <h1 id="ketqua"></h1>
+    <h1 id="result"></h1>
+    <br>
+    <h1 id="result2"></h1>
+    <br>
+    <h1 id="result3"></h1>
+    <br>
+    <h1 id="result4"></h1>
+    <br>
+    <h1 id="result5"></h1>
+    <br>
+    <h1 id="result6"></h1>
+    <br>
+    <h1 id="result7"></h1>
+    <script>
+        function display() {
+            document.getElementById("result").style.display = "none";
+            document.getElementById("result2").style.display = "none";
+            document.getElementById("result3").style.display = "none";
+            document.getElementById("result4").style.display = "none";
+            document.getElementById("result5").style.display = "none";
+            document.getElementById("result6").style.display = "none";
+            document.getElementById("result7").style.display = "none";
+        }
+
+        function laydodai() {
+            display();
+            const chuoi = document.getElementById("chuoi").value;
+            const ketqua = chuoi.length;
+            document.getElementById("ketqua").innerHTML = ketqua;
+        }
+
+        function display_input() {
+            document.getElementById("ketqua").style.display = "none";
+            document.getElementById("chuoi").style.display = "none";
+            document.getElementById("btn").style.display = "none";
+        }
+
+        {
+            display_input();
+            const b1 = "Toi ten la \"trong hoa\"";
+            document.getElementById("result").innerHTML = b1;
+
+            const b2 = 'Toi ten la \'trong hoa\'';
+            document.getElementById("result2").innerHTML = b2;
+
+            const b3 = "Co ngoi noi rang \\Tren cuoc doi nay chi co cai lit\\";
+            document.getElementById("result3").innerHTML = b3;
+        }
+    </script>
+</body>
+</html>

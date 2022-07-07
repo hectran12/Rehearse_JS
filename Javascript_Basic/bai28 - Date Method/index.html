@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <button onclick="layNgay()">Get Day</button>
+    <button onclick="layThang()">Get Month</button>
+    <button onclick="layMiliGiay()">Get Time</button>
+    <button onclick="getToanboYear()">get full year</button>
+    <button onclick="getMonthString()">get Month type String</button>
+    <button onclick="getNgay31()">get 31 day</button>
+    <button onclick="getGio()">get hours</button>
+    <button onclick="getPhut()">get Minutes()</button>
+    <button onclick="getGiay()">get seconds</button>
+    <button onclick="laymiligiay()">get mili seconds</button>
+    <button onclick="getStringDay()">get day dưới dạng String</button>
+    <button onclick="xemNgayQuocTe()">xem ngày quốc tế</button>
+    <script>
+        // xem ngày quốc tế
+        function xemNgayQuocTe() {
+            var d = getDate();
+            var out = d.getUTCDay() + " Ngày " + d.getUTCMonth() + " tháng " + d.getUTCFullYear() + " năm " + d.getUTCMinutes() + " giây " + d.getUTCMilliseconds() + " mili giây ";
+            document.getElementById("result").innerHTML = out;
+        }
+        // new Date().getDay() - dưới dạng String
+        function getStringDay() {
+            const ngay = ["Chủ nhật","Thứ hai","Thứ ba","Thứ tư","Thứ năm","Thứ sáu","Thứ bảy"];
+            document.getElementById("result").innerHTML = ngay[getDate().getDay()];
+        }
+        // new Date().getMilliSeconds() - lấy mili giây hiện tại
+        function laymiligiay() {
+            document.getElementById("result").innerHTML = getDate().getMilliseconds();
+        }
+        // new Date().getSeconds() - lấy giây hiện tại
+        function getGiay () {
+            document.getElementById("result").innerHTML = getDate().getSeconds();
+        }
+        // new Date().getMinutes() - lấy phút hiện tại
+        function getPhut () {
+            document.getElementById("result").innerHTML = getDate().getMinutes();
+        }
+        // new Date().getHours() - lấy giờ hiện tại
+        function getGio () {
+            document.getElementById("result").innerHTML = getDate().getHours();
+        }
+
+        // new Date().getDate() - lấy ngày có 31
+        function getNgay31() {
+            document.getElementById("result").innerHTML = getDate().getDate();
+        }
+        // get Month dưới dạng String
+        function getMonthString() {
+            const listMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const value = parseInt(prompt("Nhập số tháng: ")) - 1;
+            document.getElementById("result").innerHTML = listMonth[value];
+        }
+        // new Date().getFullYear() - lấy toàn bộ năm
+        function getToanboYear() {
+            document.getElementById("result").innerHTML = getDate().getFullYear();
+        }
+
+        // new Date().getTime() - lấy mili giây từ 1970 tới giờ
+        function layMiliGiay () {
+            document.getElementById("result").innerHTML = getDate().getTime();
+        }
+        // new Date().getDay() - lấy ngày trong tháng
+        function layNgay () {
+            document.getElementById("result").innerHTML = getDate().getDay();
+        }
+
+        // new Date().getMonth() - Lấy tháng từ 0-11 ( mặc định thì 1->12 )
+        function layThang () {
+            document.getElementById("result").innerHTML = getDate().getMonth();
+        }
+        function getDate () {
+            return new Date();
+        }
+    </script>
+
+</body>
+</html>

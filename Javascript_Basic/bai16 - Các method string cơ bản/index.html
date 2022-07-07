@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nhap chuoi<input type="text" id="laychuoi">
+    <button onclick="catchuoi()">Cat chuoi</button>
+    <button onclick="catchuoi_2()">substring</button>
+    <button onclick="catchuoi_3()">substr</button>
+    <button onclick="catchuoi_4()">replace</button>
+    <button onclick="test_1()">test_1</button>
+    <button onclick="test_2()">test_2</button>
+    <button onclick="chuhoa()">chu hoa</button>
+    <button onclick="chuthuong()">chu thuong</button>
+    <button onclick="ghepchuoi()">ghep chuoi</button>
+    <button onclick="lamsach()">lam sach</button>
+    <button onclick="lamdaydau()">lam day dau</button>
+    <button onclick="lamdaycuoi()">lam day cuoi</button>
+    <button onclick="laykitu()">lay ky tu</button>
+    <button onclick="test_3()">test_3</button>
+    <button onclick="tach_chuoi()">tach chuoi</button>
+   
+    <script>
+        function catchuoi () {
+            const chuoi = document.getElementById("laychuoi").value;
+            const tach = chuoi.slice(Number.parseInt(prompt("Nhap so dau: ")), Number.parseInt(prompt("Nhap so cuoi: ")));
+            alert(tach);
+        }
+
+        // substring ko bawts dau tu am dc
+
+        function catchuoi_2 () {
+            const chuoi = document.getElementById("laychuoi").value;
+            const tach = chuoi.substring(Number.parseInt(prompt("Nhap so dau: ")), Number.parseInt(prompt("Nhap so cuoi: ")));
+            alert(tach);
+        }
+        
+        // substr , bat dau va ket thuc khac biet nhau
+        function catchuoi_3 () {
+            const chuoi = document.getElementById("laychuoi").value;
+            const tach = chuoi.substr(Number.parseInt(prompt("Nhap so dau: ")),Number.parseInt(prompt("Nhap so hai: ")));
+            alert(tach);
+        }
+
+        // replace , thay doi ki tu trong chuoi 
+        function catchuoi_4 () {
+            const chuoi = document.getElementById("laychuoi").value;
+            const input = prompt("Nhap ki tu muon thay doi: ");
+            const tach = chuoi.replace(input,prompt("Nhap ki tu muon thay doi thanh: "))
+            alert(tach);
+        }
+
+        // replace test , thay doi tat ca ki tu trong chuoi
+        function test_1 () {
+            const chuoi = document.getElementById("laychuoi").value;
+            alert(chuoi.replace(/trong/g,"Nhan"))
+        }
+
+        // replace test , thay doi ki tu ke ca chu hoa
+        function test_2 () {
+            const chuoi = document.getElementById("laychuoi").value;
+            alert(chuoi.replace(/TRONG/i,"Nhan"));
+        }
+
+        // toUpperCase , chu thuong thanh chu hoa
+        function chuhoa () {
+            const chuoi = document.getElementById("laychuoi").value;
+            alert(chuoi.toUpperCase());
+        }
+
+        // toLowerCase , chu hoa thanh chu thuong
+        function chuthuong () {
+            const chuoi = document.getElementById("laychuoi").value;
+            alert(chuoi.toLowerCase());
+        }
+
+        // concat , cong chuoi
+        function ghepchuoi () {
+            const chuoi = document.getElementById("laychuoi").value;
+            alert(chuoi.concat(prompt("Ki tu ngan cach: "),prompt("Ki tu them: ")));
+        }
+
+        //trim , lam trong dau duoi
+        function lamsach () {
+            const chuoi = document.getElementById("laychuoi").value;
+            alert(chuoi.trim());
+        }
+
+
+        // padStart, làm đầy phần đầu
+        function lamdaydau () {
+            const chuoi = document.getElementById("laychuoi").value;
+            alert(chuoi.padStart(Number.parseInt(prompt("Nhập số kí tự muốn làm đầy:")),prompt("Nhập kí tự muốn làm đầy: ")));
+        }
+
+        // padEnd , làm đầy phần cuối
+        function lamdaycuoi () {
+            const chuoi = document.getElementById("laychuoi").value;
+            alert(chuoi.padEnd(Number.parseInt(prompt("Nhập số kí tự muốn làm đầy:")),prompt("Nhập kí tự muốn làm đầy: ")));
+        }
+
+        //charAt , lay ki tu từ vị trí nào đó
+        function laykitu () {
+            const chuoi = document.getElementById("laychuoi").value;
+            alert(chuoi.charAt(Number.parseInt(prompt("Nhập vị trí muốn lấy: "))));
+        }
+
+        //lay ki tu 
+        function test_3 () {
+            const chuoi = document.getElementById("laychuoi").value;
+            alert(chuoi[Number.parseInt(prompt("Nhập vị trí muốn lấy: "))]);
+        }
+
+        //split - tách chuỗi
+        function tach_chuoi () {
+            const chuoi = document.getElementById("laychuoi").value;
+            var tach = chuoi.split(prompt("Nhập kí tự muốn tách: "));
+            console.log(tach);
+            alert("Mở console debug để xem chi tiết");
+        }
+    </script>
+</body>
+</html>

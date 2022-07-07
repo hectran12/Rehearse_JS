@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <input typ="text" id="chuoi">
+    <button onclick="convertCode()">convert code to char</button>
+    <button onclick="laplai()">Lap lai</button>
+    <script>
+
+        function convertCode () {
+            const value = document.getElementById("chuoi").value;
+            var sp = value.split(",");
+            sp.forEach(element => {
+                document.getElementById("result").innerHTML += String.fromCharCode(Number.parseInt(element));
+            });
+        }
+
+        function laplai () {
+            const value = document.getElementById("chuoi").value;
+            document.getElementById("result").innerHTML = value.repeat(Number.parseInt(prompt("Nhap so: ")));
+        }
+    </script>
+
+</body>
+</html>

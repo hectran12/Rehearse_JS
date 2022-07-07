@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="time" style="font-size:50px"></h1>
+    <script>
+
+        function getTime () {
+            return new Date();
+        }
+        
+        function setTimeInID () {
+            const Time = getTime();
+            let day , month , year , min , hour , second , miliSecond;
+            day = Time.getDay();
+            month = Time.getMonth();
+            year = Time.getFullYear();
+            min = Time.getMinutes();
+            hour = Time.getHours();
+            second = Time.getSeconds();
+            miliSecond = Time.getMilliseconds();
+           
+            return "Ngay " + day + " tháng " + month + " năm " + year + " ở " + hour + " giờ " + min + " phút " + second + " giây " + miliSecond + " mili giây";
+        }
+        
+        setInterval(()=>{
+            document.getElementById("time").innerHTML = setTimeInID();
+        });
+        
+    </script>
+</body>
+</html>
