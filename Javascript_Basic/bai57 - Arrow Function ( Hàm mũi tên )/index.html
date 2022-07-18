@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <button id="btn">Click</button>
+    <script>
+
+        // cú pháp cơ bản: () {mũi tên} (=>) {(code)}
+        congtatca: {
+            break congtatca;
+            const sum = (a, b) => a + b;
+            console.log(sum(1,2));
+        }
+        
+        sosanhcuphap: {
+            break sosanhcuphap;
+            // this code is same
+            function hello_check () {
+                return "hello world";
+            }
+            console.log(hello_check());
+
+            const hello = () => {
+                return "hello world";
+            }
+
+            console.log(hello());
+
+            // clear { and } because it is arrow function
+            const fullName = (firstName, Lastname) => firstName + Lastname;
+            console.log(fullName("Trần", "Trọng Hòa"));
+        }
+
+        boquangoac: {
+            break boquangoac;
+            // if only parameter, then we can remove ()
+            const rsAge = Age => new Date().getFullYear() - Age;
+            console.log(rsAge(1990));
+        }
+
+        finallythearrowfunction: {
+            arrFunction = () => document.getElementById("result").innerHTML += this;
+            window.addEventListener("load", arrFunction); // [object Window]
+            document.getElementById("btn").addEventListener("click", arrFunction); // [object Window]
+            break finallythearrowfunction;
+            // normal function
+            function getThis () {
+                return document.getElementById("result").innerHTML += this;
+            }
+            window.addEventListener("load", getThis); // [object Window]
+            document.getElementById("btn").addEventListener("click", getThis); // diffrent result
+            
+            
+        }
+    </script>
+</body>
+</html>

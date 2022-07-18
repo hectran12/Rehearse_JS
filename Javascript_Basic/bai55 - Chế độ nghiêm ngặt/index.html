@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+       "use strict"
+
+        checkscript: {
+            break checkscript;
+            result = checkNumber(10);
+            console.log(result);
+            function checkNumber (number) {
+                return Number.isInteger(number);
+            }
+        }
+
+        // những điều không thể trong use strict ("chế độ nghiêm ngặt"):
+        // 1. Sử dụng một biến không được khai báo
+        noCall: {
+            break noCall;
+            try {
+                a = 10;
+                console.log(a);
+            } catch (err) {
+                console.log("Name", err.name, " Message: ", err.message);
+            }
+        }
+        
+        // 2. Gán các đối tượng vào một biến không được khai báo cũng là lỗi
+        noCallWithObject: {
+            break noCallWithObject;
+            try {
+                a = {pi:3.14,e:2.7};
+                console.log(a["pi"]);
+            } catch (err) {
+                console.log("Name", err.name, " Message: ", err.message);
+            }
+        }
+
+        // 3. Không được phép xóa một biến hoặc một object
+        noDelete: {
+            break noDelete;
+            var a = 10;
+            console.log(a);
+            //delete a;
+            console.log(a);
+        }
+
+        // 4. Không được xóa một function
+        noDeleteFunctions: {
+            break noDeleteFunctions;
+            function sum (num1, num2) {
+                return num1 + num2;
+            }
+
+            //delete sum;
+        }
+
+        // 5. Không được phép trùng đối số
+        noCopyTheParams: {
+            break noCopyTheParams;
+            try {
+               // var result = sum(10,20);
+                /**function sum(num1, num1) {
+                    return num1 + num1;
+                }**/
+            } catch (err) {
+                console.log("Name", err.name, " Message: ", err.message);
+            }
+            
+        }
+
+        // 6. Không được phép sài số bát phân
+        noTheBatPhanNumber: {
+            break noTheBatPhanNumber;
+            try {
+              //  var a = 010;
+            } catch (err) {
+                console.log("Name", err.name, " Message: ", err.message);
+            }
+        }
+
+        // 7. Thoát phân không được cho phép
+        noAlbBatPhan: {
+            break noAlbBatPhan;
+            try {
+                //var a = "\010";
+                //console.log(a);
+            } catch (err) {
+                console.log("Name", err.name, " Message: ", err.message);
+            }
+        }
+
+        // 8. Không được phép viết thư
+        noWriteThu: {
+            break noWriteThu;
+            try {
+                const obj = {};
+                Object.defineProperty(obj, "x", {value:0, writable:false});
+
+                obj.x = 3.14;   // This will cause an error
+            } catch (err) {
+                console.log("Name", err.name, " Message: ", err.message);
+            }
+        }
+
+        // 9. Không được phép viết thư cho một tài sản chỉ nhận được
+        noWriteGET: {
+            break noWriteGET;
+            try {
+                const obj = {get x() {return 0;}};
+                obj.x = 3.14;
+            } catch (err) {
+                console.log('Name', err.name, ' Message: ', err.message);
+            }
+        }
+
+        // 10. Không được xóa một sản phẩm không thể xáo được
+        noDeleteCanNotDelete: {
+            break noDeleteCanNotDelete;
+            try {
+                delete Object.prototype;
+            } catch (err) {
+                console.log('Name', err.name, ' Message: ', err.message);
+            }
+        }
+
+        // 11. Không được khai báo trùng với từ khóa
+        noKeyword: {
+            break  noKeyword;
+            try {
+                //let arguments, eval;
+
+            } catch {
+                console.log("Không biết nói gì luôn!");
+            }
+        }
+
+        // 12. Từ khóa with không được cho phép
+        noKeywordWith: {
+            break noKeywordWith;
+     
+            try {
+                //with (Math) {
+                  //  var x = 2;
+                //}
+            } catch (err) {
+                console.log("Name", err.name, " Message: ", err.message);
+            }
+        }
+
+        // 13. Không được phép sài eval
+        noEvalFunction: {
+            break noEvalFunction;
+            try {
+                eval('let x = 5;');
+                console.log(x);
+            } catch (err) {
+                console.log("Name", err.name, " Message: ", err.message);
+            }
+        }
+
+        // 14. Undefined không được để từ khóa this trống
+        noOpen: {
+            try {
+                myFunction();
+
+                function myFunction() {
+                    alert(this);
+                }
+            } catch (err) {
+                console.log("Name", err.name, " Message: ", err.message);
+            }
+        }
+
+        // 15. Không được các từ khóa trong OOP
+        noOOPKeyword: {
+            try {
+                var public = 5;
+                console.log(public);
+            } catch (err) {
+                console.log("Name", err.name, " Message: ", err.message);
+            }
+        }
+    </script>
+</body>
+</html>

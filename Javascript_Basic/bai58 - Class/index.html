@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+        class1: {
+
+            // method "constructor" always call if create class
+
+            // if you not create method constructor , then class auto call method "constructor" when create class
+            class Car {
+                constructor(name, year) {
+                    this.name = name;
+                    this.year = year;
+                }
+            }
+
+            const cars = new Car('BMW', 2018);
+            console.log(cars.name);
+            console.log(cars.year);
+            console.log(cars);
+
+            const cars2 = new Car("Audi", 2019);
+            console.log(cars2.name);
+            console.log(cars2.year);
+
+        }
+    </script>
+</body>
+</html>

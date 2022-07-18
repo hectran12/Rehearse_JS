@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        class Car {
+            constructor (name, year, model, image) {
+                this.name = name;
+                this.year = year;
+                this.model = model;
+                this.image = image;
+            }
+
+            editName (name) {
+                this.name = name;
+            }
+
+            editYear (year) {
+                this.year = year;
+            }
+
+            editModel (model) {
+                this.model = model;
+            }
+
+            editImage (image) {
+                this.image = image;
+            }
+
+            showInfo () {
+                console.log(`Name: ${this.name}`);
+                console.log(`Year: ${this.year}`);
+                console.log(`Model: ${this.model}`);
+                console.log(`Image: ${this.image}`);
+            }
+        }
+
+        const car = new Car('BMW', 2018, 'X5', 'https://www.bmw.com/content/dam/bmw/common/all-models/x-series/x5/2015/at-a-glance/x5-at-a-glance-2015.jpg');
+        car.showInfo();
+    </script>
+</body>
+</html>

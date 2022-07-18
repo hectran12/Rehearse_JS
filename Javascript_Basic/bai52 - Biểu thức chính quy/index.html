@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+    //bieuthucchinhquy();
+    bieuthucchinhquymu();
+    function bieuthucchinhquymu () {
+        test : {
+            text = 'trong hoa luon la trong hoa day nha';
+            reg = new RegExp('[^a]','g');
+            console.log(text.match(reg));
+        }
+    }
+    function bieuthucchinhquy() {
+
+
+        findtext : {
+            break findtext;
+            text = 'trong hoa dep tRai';
+            console.log(text.match(/[t]/g));
+        }
+
+        findtextnew : {
+            break findtextnew;
+            text = 'trong hoaddep tRai';
+            reg = new RegExp('[a-z]','g');
+            console.log(text.match(reg));
+        }
+
+        findtextnew1 : {
+            break findtextnew1;
+            text = 'trong hoa dep tRai';
+            reg = new RegExp('[tr]','gi');
+            console.log(text.match(reg));
+        }
+
+        findtextnew2 : {
+            break findtextnew2;
+            text = 'qwrertyuiopasdfghjklzxcvbnm';
+            reg = new RegExp('[a-h]','gi');
+            console.log(text.match(reg));
+        }
+
+        findtextnew3 : {
+            break findtextnew3;
+            text = 'QWERTYUIOPASDFGHJKLZXCVBNM';
+            reg = new RegExp('[A-H]','g');
+            console.log(text.match(reg));
+        }
+
+        findtextnew4 : {
+            break findtextnew4;
+            text = randomString(10);
+            reg = new RegExp('[A-h]', 'g');
+            console.log(text.match(reg));
+        }
+
+        findtextnew5 : {
+            break findtextnew5;
+            text = 'trong trong TRONG';
+            reg = new RegExp('[TRONG]', 'gi');
+            console.log(text.match(reg));
+        }
+
+        function randomString(length) {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            for (var i = 0; i < length; i++)
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+            return text;
+        }
+    }
+</script>
+</body>
+</html>

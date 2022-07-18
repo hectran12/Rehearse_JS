@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //obj();
+        //callobj();
+        vaymuon();
+        function obj () {
+            const keys = {
+                ho: 'Tran',
+                ten: 'Nguyen',
+                getFullName: function () {
+                    return this.ho + ' ' + this.ten;
+                },
+                getThis: function () {
+                    return this;
+                }
+            };
+            console.log(keys.getThis());
+        }
+
+        // gọi
+        function callobj () {
+            const canhan = {
+                fullName: function () {
+                    return this.ho + ' ' + this.ten;
+                }
+            };
+            const nguoi = {
+                ho : 'Tran',
+                ten : 'Hoa'
+            };
+            console.log(canhan.fullName.call(nguoi));
+        }
+
+        // vay mượn cấu trúc
+        function vaymuon () {
+            const obj1 = {
+                num1: 10,
+                num2: 20,
+                sum: function() {
+                    return this.num1 + this.num2;
+                }
+            };
+
+            const obj2 = {
+                num1: 30,
+                num2: 40
+            };
+
+            let result = obj1.sum.bind(obj2);
+            console.log(result());
+        }
+    </script>
+</body>
+</html>

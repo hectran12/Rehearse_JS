@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+
+    <script>
+
+        check1: {
+            break check1;
+            x = 5;
+            document.getElementById("result").innerHTML = x;
+            var x;
+            console.log(x);
+        }
+
+        check2: {
+            var x;
+            x = 5;
+            inner = document.getElementById("result");
+            inner.innerHTML = x;
+        }
+
+        check3: {
+            var x;
+            document.getElementById("result").innerHTML = x;
+            x = 5;
+            console.log(x);
+        }
+        
+     
+    </script>
+</body>
+</html>
