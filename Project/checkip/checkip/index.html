@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra ip</title>
+</head>
+<body>
+    <center>
+        <h1 id="myIP">MyIPV4: </h1>
+        <button onclick="window.location.reload(true)">Reload</button>
+        <h3>Thông tin chi tiết:</h3><br>
+        <div id="moreInfo">
+            <div style="overflow-x: auto;">
+                
+            </div>
+        </div>
+    </center>
+    
+    <script type="module">
+        import main from './script/module.js' // import module, please fill token in file
+        const ip = JSON.parse(main.getMyIpAdress().replace('DisplayIP(', '').replace(');','')).ip;
+        const url = main.init(ip);
+        const dJson = JSON.parse(main.getJsonAPI(url));
+        const isp = dJson.isp;
+        
+        // get element in page
+        const myIp = document.getElementById("myIP");
+        const moreInfo = document.getElementById("moreInfo");
+        
+        // load ip
+        myIp.innerHTML += `
+            <p style='color:red'>${ip} (${isp})</p>
+        `;
+        
+        // load content info with "moreInfo" in page
+        var contentInfo = '<table>';
+        // get name in result stay location
+        const location = dJson.location;
+        var th = '', td = '';
+        for (var x in location) {
+            th += `
+                    <th>
+                        ${x}
+                    </th>
+            `;
+            td += `
+                    <td>
+                        ${location[x]}
+                    </td>
+            `;
+        }
+        
+        contentInfo += `
+        <h4 style='color:green'>Location</h4>
+            <tr>
+            ${th}
+            </tr>
+            <tr>
+            ${td}
+            </tr>
+            </table>
+        `;
+        
+        moreInfo.innerHTML += contentInfo;
+        
+        contentInfo = '<table>';
+        // get name in result stay as
+        const as = dJson.as;
+        th = '', td = '';
+        for (var x in as) {
+            th += `
+                    <th>
+                        ${x}
+                    </th>
+            `;
+            td += `
+                    <td>
+                        ${as[x]}
+                    </td>
+            `;
+        }
+        
+        contentInfo += `
+        <h4 style='color:green'>as</h4>
+            <tr>
+            ${th}
+            </tr>
+            <tr>
+            ${td}
+            </tr>
+            </table>
+        `;
+        
+        moreInfo.innerHTML += contentInfo;
+    </script>
+</body>
+</html>
