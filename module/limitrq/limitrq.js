@@ -14,7 +14,7 @@ function checkRequest (key) {
   var infoKey = getInfoKey(key);
   if (infoKey == false) { addKey(key); infoKey = getInfoKey(key); }
   var blockTime = new Date(infoKey.date)
-  var blockrequest = new Date(infoKey.date).setMinutes(blockTime.getMinutes() + requestperLimit)
+  var blockrequest = new Date(infoKey.date).setMinutes(blockTime.getMinutes() + limit_seconds/60)
   if (infoKey.count >= requestperLimit) {
     if (new Date() > new Date(blockrequest)) {
       addKey(key);
